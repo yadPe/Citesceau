@@ -4,11 +4,12 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './form.css';
+import NavBar from '../NavBar';
 
 class NewProjet extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   render() {
@@ -30,6 +31,7 @@ class NewProjet extends Component {
           </FormGroup>
           <Button>Valider mon projet</Button>
         </Form>
+        <NavBar />
       </div>
     );
   }
