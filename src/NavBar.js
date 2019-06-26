@@ -1,49 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
   NavLink,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-export default class NavBar extends React.Component {
+class NavBar extends Component {
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false,
-    };
-  }
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.state = { };
   }
 
   render() {
     return (
       <div>
-        <Navbar className='navbar fixed-bottom navbar-light bg-light' color="light" light expand="md" navbar-fixed-bottom>
-          <NavbarBrand href="/">Home</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/NewProjet">Poster</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/VueEnsemble">Voter</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+        <Navbar className="navbar fixed-bottom navbar-light bg-light" color="light" light expand="md" navbar-fixed-bottom>
+          <NavbarBrand href="/">
+            <img src="./assets/home.svg" style={{ maxWidth: '20px' }} />
+Home
+          </NavbarBrand>
+          <NavLink href="/NewProjet">
+            <img src="./assets/edit.svg" style={{ maxWidth: '20px' }} />
+Poster
+          </NavLink>
+          <NavLink href="/VueEnsemble">
+            <img src="./assets/search.svg" style={{ maxWidth: '20px' }} />
+Voter
+          </NavLink>
         </Navbar>
       </div>
     );
   }
 }
+
+export default NavBar;
