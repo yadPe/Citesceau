@@ -4,7 +4,7 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './form.css';
-import NavBar from '../NavBar';
+import NavBar from '../../NavBar';
 
 class NewProjet extends Component {
   constructor(props) {

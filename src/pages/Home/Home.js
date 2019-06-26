@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../Home.css';
-import NavBar from '../NavBar';
+import './Home.css';
+import NavBar from '../../NavBar';
 
 class Home extends Component {
   constructor(props) {
