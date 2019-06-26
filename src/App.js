@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './Home';
-import NewProjet from './NewProjet';
-import VueEnsemble from './VueEnsemble';
-import Projet from './Projet';
-import Profil from './Profil';
+import Home from './pages/Home';
+import NewProjet from './pages/NewProjet';
+import VueEnsemble from './pages/VueEnsemble';
+import Projet from './pages/Projet';
+import Profil from './pages/Profil';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
