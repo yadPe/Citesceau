@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
+import NavBar from '../NavBar';
 import '../Projet.css';
 
 class Projet extends Component {
@@ -17,28 +17,10 @@ class Projet extends Component {
         <p className="DescriptionProjet">Voici la description de mon projet wouhouhou je vais changer le monde!</p>
         <h3 className="CommentairesTitre">Commentaires</h3>
         <p className="Commentaires">Voici mon commentaire je suis le boss ou pas?!</p>
+        <NavBar />
       </div>
     );
   }
 }
 
 export default Projet;
-=======
-import NavBar from '../NavBar';
-
-class Projet extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        return (
-            <div>
-                <NavBar />
-            </div>
-        );
-    }
-}
-
-export default Projet;
->>>>>>> dev
