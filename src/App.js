@@ -6,11 +6,13 @@ import Projet from './pages/Projet/Projet';
 import Profil from './pages/Profil/Profil';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import TestFirebase from './pages/test/testFirebase';
+
 
 function App() {
   return (
     <div className="App">
-
+      <TestFirebase/>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
