@@ -1,0 +1,24 @@
+.Profil{
+    color: white;
+    text-align: center
+}
+
+.ImageProfil{
+    display: flex;
+    margin: auto auto;
+}
+
+.NombrePoints{
+    color: white;
+    text-align: center
+}
+
+.Votes{
+    color: white;
+    text-align: center
+}
+
+.Propositions{
+    color: white;
+    text-align: center
+}
