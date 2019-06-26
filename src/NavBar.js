@@ -29,16 +29,16 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar className='navBar' color="light" light expand="md" navbar-fixed-bottom>
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <Navbar className='navbar fixed-bottom navbar-light bg-light' color="light" light expand="md" navbar-fixed-bottom>
+          <NavbarBrand href="/">Home</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="/NewProjet">Poster</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink href="/VueEnsemble">Voter</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
