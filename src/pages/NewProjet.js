@@ -12,23 +12,24 @@ class NewProjet extends Component {
 
   render() {
     return (
-
-      <Form>
-        <FormGroup>
-          <Label for="name">Nom du projet</Label>
-          <Input type="name" name="nom" id="name" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleFile">Télécharger une image</Label>
-          <Input type="file" name="file" id="exampleFile" />
-          <FormText color="muted" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="Text">Description du projet</Label>
-          <Input type="textarea" name="text" id="Text" />
-        </FormGroup>
-        <Button>Valider mon projet</Button>
-      </Form>
+      <div className="formulaire">
+        <Form>
+          <FormGroup>
+            <Label for="name">Nom du projet</Label>
+            <Input type="name" name="nom" id="name" />
+          </FormGroup>
+          <FormGroup>
+            <Label for="exampleFile">Télécharger une image</Label>
+            <Input type="file" name="file" id="exampleFile" />
+            <FormText color="muted" />
+          </FormGroup>
+          <FormGroup>
+            <Label for="Text">Description du projet</Label>
+            <Input type="textarea" name="text" id="Text" />
+          </FormGroup>
+          <Button>Valider mon projet</Button>
+        </Form>
+      </div>
     );
   }
 }
