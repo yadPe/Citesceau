@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../NavBar';
-import '../Profil.css';
+import './Profil.css';
 
 class Profil extends Component {
   constructor(props) {
