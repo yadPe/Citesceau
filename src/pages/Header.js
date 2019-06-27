@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Header extends Component {
         padding: '0 10px 0 10px',
       }}
       >
-        <div style={{ fontSize: '26px' }}>Hackatown</div>
+        <div style={{ fontSize: '20px', fontFamily: 'Titre' }}>Hackatown</div>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '145px' }}>
           <div style={{
             borderRadius: '440px',
@@ -40,15 +41,17 @@ class Header extends Component {
             marginLeft: '34px',
           }}
           >
-            <img
-              src={userInfo.Image}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '440px',
-              }}
-              alt="profile"
-            />
+            <Link to="/profil">
+              <img
+                src={userInfo.Image}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '440px',
+                }}
+                alt="profile"
+              />
+            </Link>
           </div>
           <div style={{
             display: 'flex',

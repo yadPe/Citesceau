@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import './Profil.css';
+import Header from '../Header';
 
 class Profil extends Component {
   constructor(props) {

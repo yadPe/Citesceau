@@ -3,10 +3,12 @@ import {
   Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import ImageUpload from '../ImageUpload';
 import { withRouter } from 'react-router';
+import Header from '../Header';
+import ImageUpload from '../ImageUpload';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import './NewProjet.css';
+
 
 class NewProjet extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class NewProjet extends Component {
   }
 
   getImageURL = (url) => {
-    this.setState({ image: url })
+    this.setState({ image: url });
   }
 
   onChange = (event) => {
@@ -29,28 +31,31 @@ class NewProjet extends Component {
   onSubmit = (event) => {
     const { newProjet, history } = this.props;
     const {
-      titre, description, image
+      titre, description, image,
     } = this.state;
 
     newProjet({
       titre,
       description,
       image,
-      author: localStorage.getItem('userId')
-    }).then(ref => history.push(`/Projets/${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }))
+      author: localStorage.getItem('userId'),
+    }).then(ref => history.push(`/Projet?id=${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }));
 
     event.preventDefault();
   }
 
   render() {
-    const { titre, description, image, error } = this.state;
+    const {
+      titre, description, image, error,
+    } = this.state;
     const isInvalid = titre === ''
       || description === ''
       || image === '';
     return (
       <div className="Formulaire">
+        <Header />
         <div>{error}</div>
-        <Form onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit} style={{ padding: '5%' }}>
           <FormGroup>
             <Label for="name">Titre du projet</Label>
             <Input
@@ -64,7 +69,7 @@ class NewProjet extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="File">Télécharger une image</Label>
-            <ImageUpload reportImageUrl={this.getImageURL} collection={'Projets'} />
+            <ImageUpload reportImageUrl={this.getImageURL} collection="Projets" />
           </FormGroup>
           <FormGroup>
             <Label for="text">Description du projet</Label>
