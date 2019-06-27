@@ -24,7 +24,7 @@ class Firebase {
 
   /**
    * Queries a user from database with its userId
-   * @param {number} uid User id to query.
+   * @param {string} uid User id to query.
    */
   user = (id) => this.db.collection('Users')
     .doc(id)
@@ -39,7 +39,7 @@ class Firebase {
 
   /**
   * Queries a project from database with its id
-  * @param {number} id Project id to query.
+  * @param {string} id Project id to query.
   * @return {object} Project object from database.
   */
   projet = (id) => this.db.collection('Projets')
@@ -63,12 +63,23 @@ class Firebase {
   */
   newProjet = (projet) => this.db.collection(`Projets`).add({ ...projet, creationDate: new Date(), points: 0 });
 
-   commentaires = ProjetId => this.db.collection('Commentaires')
-     .where('projetId', '==', ProjetId)
-     .get()
-     .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+  /**
+  * Queries all comments related to a project by id
+  * @param {string} projectId A project ID.
+  * @return {Array} Array of comment objects ordered by timestamp - latest first
+  */
+  commentaires = ProjetId => this.db.collection('Commentaires')
+    .where('projetId', '==', ProjetId)
+    .orderBy('creationDate', 'desc')
+    .get()
+    .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
 
-     newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
+  /**
+  * Create a new comment in database and return its id
+  * @param {object} commentObject A comment object.
+  * @return {number} ID generated from database.
+  */
+  newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
 }
 
 
