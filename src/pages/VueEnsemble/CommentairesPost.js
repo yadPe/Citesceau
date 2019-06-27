@@ -1,31 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import withFirebaseContext from '../../Firebase/withFirebaseContext';
 
-
-const comments = [
-    {
-        author: "tqbIVwTfSWgB4ULkOkaiNEM32v93",
-        projetId: 'HqZe0RDTrNOtdiNUIxD5',
-        comment: 'Parfait je paye mes impots ',
-        creationDate: 1561642145443,
-        likes: 1,
-    },
-    {
-        author: "tqbIVwTfSWgB4ULkOkasdada32v93",
-        projetId: 'HqZe0RsdsdiNUIxD5',
-        comment: 'paye mes impots ',
-        creationDate: 1561642141043,
-        likes: 1,
-    },
-    {
-        author: "tqbIVwTfSWsdfsdLkOkaiNEM32v93",
-        projetId: 'HasdfOtdiNUIxD5',
-        comment: 'Parfait je impots ',
-        creationDate: 1561642141003,
-        likes: 1,
-    }
-]
 
 class CommentairesPost extends Component {
     constructor(props) {
@@ -97,4 +74,4 @@ class CommentairesPost extends Component {
     }
 }
 
-export default CommentairesPost;
+export default withFirebaseContext(CommentairesPost);
