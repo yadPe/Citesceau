@@ -15,22 +15,30 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar fixed-bottom navbar-light bg-light" color="light" light expand="md" navbar-fixed-bottom>
-          <NavbarBrand href="/" active>
-            <img src="./assets/home.svg" className="image" />
-Home
+        <Navbar className="navbar navbar2 fixed-bottom navbar-light bg-light" color="light" light expand="md" navbar-fixed-bottom>
+          <NavbarBrand href="/">
+            <div className="navbrand">
+              <img src="./assets/home.svg" className="image" />
+              <p>Home</p>
+            </div>
           </NavbarBrand>
           <NavbarBrand href="/NewProjet">
-            <img src="./assets/edit.svg" className="image" />
-Poster
+            <div className="navbrand">
+              <img src="./assets/edit.svg" className="image" />
+              <p>Poster</p>
+            </div>
           </NavbarBrand>
           <NavbarBrand href="/VueEnsemble">
-            <img src="./assets/search.svg" className="image" />
-Voter
+            <div className="navbrand">
+              <img src="./assets/search.svg" className="image" />
+              <p>Voter</p>
+            </div>
           </NavbarBrand>
           <NavbarBrand href="/Profil">
-            <img src="./assets/user.svg" className="image" />
-Profil
+            <div className="navbrand">
+              <img src="./assets/user.svg" className="image" />
+              <p>Profil</p>
+            </div>
           </NavbarBrand>
         </Navbar>
       </div>
