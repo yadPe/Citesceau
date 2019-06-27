@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Profil.css';
+import Header from '../Header';
 
 class Profil extends Component {
   constructor(props) {
@@ -27,16 +28,19 @@ class Profil extends Component {
     const { userInfo } = this.state;
     return (
       <div>
-        <h1 className="Profil">Profil</h1>
-        <img className="ImageProfil" src={userInfo.Image ? userInfo.Image : 'http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png'} />
-        <h2 className="NombrePoints">Nombre de points</h2>
-        <h3 className="NombresPoints2">
-          {userInfo.Points}
-          {' '}
+        <Header />
+        <div style={{ padding: '5%' }}>
+          <h1 className="Profil">Profil</h1>
+          <img className="ImageProfil" src={userInfo.Image ? userInfo.Image : 'http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png'} />
+          <h2 className="NombrePoints">Nombre de points</h2>
+          <h3 className="NombresPoints2">
+            {userInfo.Points}
+            {' '}
           points
-        </h3>
-        <h3 className="Votes">Votes</h3>
-        <h4 className="Propositions">Proposition</h4>
+          </h3>
+          <h3 className="Votes">Votes</h3>
+          <h4 className="Propositions">Proposition</h4>
+        </div>
       </div>
     );
   }
