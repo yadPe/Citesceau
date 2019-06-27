@@ -1,6 +1,7 @@
 .Profil{
     color: black;
-    text-align: center
+    text-align: center;
+    font-family: "Titre";
 }
 
 .ImageProfil{
@@ -11,17 +12,27 @@
 
 .NombrePoints{
     color: black;
-    text-align: center
+    text-align: center;
+    font-family: "Titre";
 }
 
 .Votes{
     color: black;
-    text-align: center
+    text-align: center;
+    font-family: "Titre";
 }
 
 .Propositions{
     color: black;
-    text-align: center
+    text-align: center;
+    font-family: "Titre";
+}
+
+.NombresPoints2{
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+    background-color: rgb(192,192,192, 0.5)
 }
 
 .hro {
