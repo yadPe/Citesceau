@@ -4,13 +4,13 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 const config = {
-  apiKey: "AIzaSyBle4csTAAOWsDXr8jHSX8YyRZBI3yJU98",
-  authDomain: "hackatown-645d6.firebaseapp.com",
-  databaseURL: "https://hackatown-645d6.firebaseio.com",
-  projectId: "hackatown-645d6",
-  storageBucket: "hackatown-645d6.appspot.com",
-  messagingSenderId: "723473958065",
-  appId: "1:723473958065:web:0835ff1fc4b7e666"
+  apiKey: 'AIzaSyBle4csTAAOWsDXr8jHSX8YyRZBI3yJU98',
+  authDomain: 'hackatown-645d6.firebaseapp.com',
+  databaseURL: 'https://hackatown-645d6.firebaseio.com',
+  projectId: 'hackatown-645d6',
+  storageBucket: 'hackatown-645d6.appspot.com',
+  messagingSenderId: '723473958065',
+  appId: '1:723473958065:web:0835ff1fc4b7e666',
 };
 
 class Firebase {
@@ -22,20 +22,28 @@ class Firebase {
     this.storage = app.storage();
   }
 
+<<<<<<< HEAD
   /**
    * Queries a user from database with its userId
    * @param {number} uid User id to query.
    */
   user = (id) => this.db.collection('Users')
+=======
+  user = id => this.db.collection('Users')
+>>>>>>> dev
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
 
+<<<<<<< HEAD
   /**
   * Create a new user in database
   * @param {object} userObject Object containing all user properties
   */
   newUser = (user) => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+=======
+  newUser = user => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+>>>>>>> dev
 
   /**
   * Queries a project from database with its id
@@ -56,14 +64,24 @@ class Firebase {
     .get()
     .then(querySnapshot => querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
 
+<<<<<<< HEAD
   /**
   * Create a new project in database and return its id
   * @param {object} projectObject A project object.
   * @return {number} ID generated from database.
   */
   newProjet = (projet) => this.db.collection(`Projets`).add({ ...projet, creationDate: new Date(), points: 0 });
+=======
+  newProjet = projet => this.db.collection('Projets').add({ ...projet, creationDate: new Date(), points: 0 });
+>>>>>>> dev
 
+   commentaires = ProjetId => this.db.collection('Commentaires')
+     .where('projetId', '==', ProjetId)
+     .get()
+     .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
 
+     newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
 }
+
 
 export default Firebase;

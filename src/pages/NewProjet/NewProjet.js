@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ImageUpload from '../ImageUpload';
 import { withRouter } from 'react-router';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
-import './form.css';
+import './NewProjet.css';
 
 class NewProjet extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class NewProjet extends Component {
   }
 
   getImageURL = (url) => {
-    this.setState({image: url})
+    this.setState({ image: url })
   }
 
   onChange = (event) => {
@@ -45,8 +45,8 @@ class NewProjet extends Component {
   render() {
     const { titre, description, image, error } = this.state;
     const isInvalid = titre === ''
-    || description === ''
-    || image === '';
+      || description === ''
+      || image === '';
     return (
       <div className="Formulaire">
         <div>{error}</div>
@@ -64,7 +64,7 @@ class NewProjet extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="File">Télécharger une image</Label>
-            <ImageUpload reportImageUrl={this.getImageURL} collection={'Projets'}/>
+            <ImageUpload reportImageUrl={this.getImageURL} collection={'Projets'} />
           </FormGroup>
           <FormGroup>
             <Label for="text">Description du projet</Label>

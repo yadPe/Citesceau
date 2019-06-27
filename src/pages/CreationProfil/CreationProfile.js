@@ -22,13 +22,12 @@ class Signup extends Component {
     };
   }
 
-
   onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   getImageURL = (url) => {
-    this.setState({image: url})
+    this.setState({ image: url });
   }
 
   onSubmit = (event) => {
@@ -51,7 +50,9 @@ class Signup extends Component {
   users = (user) => {
     // Récupération du Firestore grâce à context
     const { newUser } = this.props;
-    const { username, email, firstName, image } = this.state;
+    const {
+      username, email, firstName, image,
+    } = this.state;
     // Envoi d'infos dans le cloud Firestore
     newUser({
       name: username,
@@ -72,7 +73,7 @@ class Signup extends Component {
       passwordOne,
       passwordTwo,
       error,
-      image
+      image,
     } = this.state;
     const isInvalid = passwordOne !== passwordTwo
       || passwordOne === ''
@@ -108,7 +109,7 @@ class Signup extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="File">Télécharger une image</Label>
-            <ImageUpload reportImageUrl={this.getImageURL} collection={'Users'}/>
+            <ImageUpload reportImageUrl={this.getImageURL} collection="Users" />
           </FormGroup>
           <FormGroup>
             <Label for="Mail">E-Mail</Label>
