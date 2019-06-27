@@ -1,0 +1,29 @@
+.Projet{
+    color: white;
+    text-align: center
+}
+
+.ImageProjet{
+    display: flex;
+    margin: auto auto;
+}
+
+.DescriptionTitre{
+    color: white;
+    text-align: center
+}
+
+.DescriptionProjet{
+    color: white;
+    text-align: center
+}
+
+.CommentairesTitre{
+    color: white;
+    text-align: center
+}
+
+.Commentaires{
+    color: white;
+    text-align: center
+}
