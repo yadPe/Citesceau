@@ -29,7 +29,7 @@ class Profil extends Component {
     return (
       <div>
         <h1 className="Profil">Profil</h1>
-        <img className="ImageProfil" src="https://s3-eu-west-1.amazonaws.com/photos-kidygo/parents/profile-default/profil_homme.svg" alt="Profil" />
+        <img className="ImageProfil" src={userInfo.Image ? userInfo.Image : 'http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png'} />
         <h2 className="NombrePoints">Nombre de points</h2>
         <h3 className="NombresPoints2">
           {userInfo.Points}
