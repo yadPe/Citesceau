@@ -6,6 +6,7 @@
 .ImageProfil{
     display: flex;
     margin: auto auto;
+    max-width: 60%;
 }
 
 .NombrePoints{
