@@ -1,5 +1,5 @@
 .Projet{
-    color: white;
+    color: black;
     text-align: center;
     font-family: "Titre";
 }
@@ -10,37 +10,37 @@
 }
 
 .DescriptionTitre{
-    color: white;
+    color: black;
     text-align: center;
     font-family: "Titre";
 }
 
 .DescriptionProjet{
-    color: white;
+    color: black;
     text-align: center;
     background-color: rgb(192,192,192, 0.5)
 }
 
 .CommentairesTitre{
-    color: white;
+    color: black;
     text-align: center;
     font-family: "Titre";
 }
 
 .Commentaires{
-    color: white;
+    color: black;
     text-align: center;
     background-color: rgb(192,192,192, 0.5)
 }
 
 .Points{
-    color: white;
+    color: black;
     text-align: center;
     font-family: "Titre";
 }
 
 .Resultats{
-    color: white;
+    color: black;
 }
 
 .Counttt{
