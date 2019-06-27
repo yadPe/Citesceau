@@ -1,0 +1,22 @@
+.image {
+  max-width: 28px;
+  vertical-align: middle;
+}
+
+.navbar2{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.navbrand{
+
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: black;
+  
+}

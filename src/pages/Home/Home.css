@@ -1,20 +1,39 @@
+@font-face{
+    font-family: "Titre";
+    src: url('LemonMilkbold.otf')
+  }
+
 body{
-    background-color: #0520A3;
+    background-color: #E9EAED;
 }
 
 .Citoyen{
-    color: white;
-    text-align: center
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+    font-size: 450%;
+    margin-top: 10%;
 }
 
 .PropositionProjet{
     display: flex;
     margin: auto auto;
-    margin-top: 5%
+    margin-top: 5%;
+    font-family: "Titre";
+    font-size: 200%;
+    margin-top: 40%;
 }
 
 .ConsultationProjet{
     display: flex;
     margin: auto auto;
-    margin-top: 5%
+    margin-top: 5%;
+    font-family: "Titre";
+    font-size: 200%;
+}
+
+.Accroche{
+    display: flex;
+    margin: auto auto;
+    font-family: "Titre";
 }
