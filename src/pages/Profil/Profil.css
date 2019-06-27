@@ -1,24 +1,40 @@
 .Profil{
-    color: white;
-    text-align: center
+    color: black;
+    text-align: center;
+    font-family: "Titre";
 }
 
 .ImageProfil{
     display: flex;
     margin: auto auto;
+    max-width: 60%;
 }
 
 .NombrePoints{
-    color: white;
-    text-align: center
+    color: black;
+    text-align: center;
+    font-family: "Titre";
 }
 
 .Votes{
-    color: white;
-    text-align: center
+    color: black;
+    text-align: center;
+    font-family: "Titre";
 }
 
 .Propositions{
-    color: white;
-    text-align: center
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+}
+
+.NombresPoints2{
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+    background-color: rgb(192,192,192, 0.5)
+}
+
+.hro {
+    color: black;
 }
