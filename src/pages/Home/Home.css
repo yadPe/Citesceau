@@ -3,6 +3,9 @@
     src: url('LemonMilkbold.otf')
   }
 
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pragati+Narrow|Russo+One&display=swap');
+
 body{
     background-color: #E9EAED;
 }
@@ -19,7 +22,6 @@ body{
     display: flex;
     margin: auto auto;
     margin-top: 5%;
-    font-family: "Titre";
     font-size: 167%;
     margin-top: 20%;
 }
@@ -28,19 +30,16 @@ body{
     display: flex;
     margin: auto auto;
     margin-top: 5%;
-    font-family: "Titre";
     font-size: 150%;
 }
 
 .CreationProfile{
     display: flex;
     margin: auto auto;
-    font-family: "Titre";
     font-size: 200%;
 }
 
 .Accroche{
     display: flex;
     margin: auto auto;
-    font-family: "Titre";
 }

@@ -27,10 +27,10 @@ class Count extends React.Component {
     });
   }
 
-  /*valider = () => {
+  /* valider = () => {
 
   });
-}*/
+} */
 
   render() {
     return (
