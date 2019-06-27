@@ -17,17 +17,17 @@ class NavBar extends Component {
       <div>
         <Navbar className="navbar fixed-bottom navbar-light bg-light" color="light" light expand="md" navbar-fixed-bottom>
           <NavbarBrand href="/">
-            <img src="./assets/home.svg" style={{ maxWidth: '20px' }} />
+            <img src="./assets/home.svg" className="image" />
 Home
           </NavbarBrand>
-          <NavLink href="/NewProjet">
+          <NavbarBrand href="/NewProjet">
             <img src="./assets/edit.svg" style={{ maxWidth: '20px' }} />
 Poster
-          </NavLink>
-          <NavLink href="/VueEnsemble">
+          </NavbarBrand>
+          <NavbarBrand href="/VueEnsemble">
             <img src="./assets/search.svg" style={{ maxWidth: '20px' }} />
 Voter
-          </NavLink>
+          </NavbarBrand>
         </Navbar>
       </div>
     );
