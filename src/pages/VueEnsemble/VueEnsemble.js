@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import NavBar from '../NavBar';
+import CommentairesPost from './CommentairesPost';
+import CommentairesGet from './CommmentairesGet';
 
 class VueEnsemble extends Component {
   constructor(props) {
@@ -12,6 +14,7 @@ class VueEnsemble extends Component {
     return (
       <div>
         <Header />
+        <CommentairesGet />
         <NavBar />
       </div>
     );
