@@ -20,14 +20,21 @@ body{
     margin: auto auto;
     margin-top: 5%;
     font-family: "Titre";
-    font-size: 200%;
-    margin-top: 40%;
+    font-size: 167%;
+    margin-top: 20%;
 }
 
 .ConsultationProjet{
     display: flex;
     margin: auto auto;
     margin-top: 5%;
+    font-family: "Titre";
+    font-size: 150%;
+}
+
+.CreationProfile{
+    display: flex;
+    margin: auto auto;
     font-family: "Titre";
     font-size: 200%;
 }
