@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from '../NavBar';
 import './Projet.css';
 
 class Projet extends Component {
@@ -17,7 +16,6 @@ class Projet extends Component {
         <p className="DescriptionProjet">Voici la description de mon projet wouhouhou je vais changer le monde!</p>
         <h3 className="CommentairesTitre">Commentaires</h3>
         <p className="Commentaires">Voici mon commentaire je suis le boss ou pas?!</p>
-        <NavBar />
       </div>
     );
   }

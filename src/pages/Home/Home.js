@@ -3,7 +3,6 @@ import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Home.css';
 import { Link } from 'react-router-dom';
-import NavBar from '../NavBar';
 
 class Home extends Component {
   constructor(props) {
@@ -21,7 +20,6 @@ class Home extends Component {
         <Link to="/VueEnsemble">
           <Button color="primary" size="lg" className="ConsultationProjet">Consultation Projets</Button>
         </Link>
-        <NavBar/>
       </div>
     );
   }

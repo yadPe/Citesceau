@@ -1,5 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
 
 const config = {
   apiKey: "AIzaSyBle4csTAAOWsDXr8jHSX8YyRZBI3yJU98",
@@ -16,15 +18,24 @@ class Firebase {
     app.initializeApp(config);
 
     this.db = app.firestore();
+    this.auth = app.auth();
+    this.storage = app.storage();
   }
 
-  user = uid => this.db.ref(`users/${uid}`);
-
-  users = () => this.db.collection('Users')
+  user = (id) => this.db.collection('Users')
+    .doc(id)
     .get()
-    .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()));
+    .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
+
+  newUser = (user) => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+
+  projets = () => this.db.collection('Projets')
+    .get()
+    .then(querySnapshot => querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+
+  newProjet = (projet) => this.db.collection(`Projets`).add({ ...projet, creationDate: new Date(), points: 0 });
+
+
 }
 
 export default Firebase;
-
-

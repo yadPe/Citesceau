@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from '../NavBar';
 
 class VueEnsemble extends Component {
     constructor(props) {
@@ -9,7 +8,6 @@ class VueEnsemble extends Component {
     render() {
         return (
             <div>
-                <NavBar />
             </div>
         );
     }
