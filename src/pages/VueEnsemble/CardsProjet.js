@@ -1,5 +1,4 @@
 import React from 'react';
-import './CardsProjet.css';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Button
@@ -7,7 +6,7 @@ import {
 
 const CardsProjet = (props) => {
     return (
-        <div>
+        <div className='cardscenter'>
             <div clasName='divCards'>
                 <Card style={{ width: '80%' }} >
                     <CardImg top width="100%" src="https://www.bigmoustache.com/blog/wp-content/uploads/2018/03/poisson-avril-1140x650.jpg" />
