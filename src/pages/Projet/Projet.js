@@ -3,6 +3,8 @@ import './Projet.css';
 import Count from './Count';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import { getUrlParams, timeSince } from '../../Helpers'
+import CommentairesGet from '../VueEnsemble/CommentairesGet';
+
 
 class Projet extends Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class Projet extends Component {
   componentDidMount() {
     const id = getUrlParams('id')
     const { projet, projets } = this.props;
+    console.log(id);
     if (id) {
       projet(id).then(data => {
         this.setState({ ...data, id })
@@ -22,8 +25,9 @@ class Projet extends Component {
 
   render() {
     const { author, creationDate, description, image, points, titre } = this.state;
+
     let time = null;
-    if (creationDate){
+    if (creationDate) {
       time = creationDate.toDate()
     }
     return (
@@ -37,7 +41,7 @@ class Projet extends Component {
           <Count value={points} />
         </div>
         <h3 className="CommentairesTitre">Commentaires</h3>
-        <p className="Commentaires">Voici mon commentaire je suis le boss ou pas?!</p>
+        <p className="Commentaires"><CommentairesGet /></p>
       </div>
     );
   }

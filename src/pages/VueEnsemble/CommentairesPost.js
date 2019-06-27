@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
+import { getUrlParams } from '../../Helpers'
 
 
 class CommentairesPost extends Component {
@@ -11,6 +12,7 @@ class CommentairesPost extends Component {
             author: '',
             comment: '',
             like: 0,
+            projetId: '',
 
 
         }
@@ -36,16 +38,18 @@ class CommentairesPost extends Component {
 
     comments = () => {
         // Récupération du Firestore grâce à context
-        const { newCommentaire, history } = this.props;
+        const id = getUrlParams('id')
+        const { newCommentaire } = this.props;
         const {
-            comment, like
+            comment, like,
         } = this.state;
         // Envoi d'infos dans le cloud Firestore
         newCommentaire({
             author: localStorage.getItem('userId'),
             comment,
             like,
-        }).then(ref => history.push(`/Project?id=${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }));
+            projetId: id,
+        });
 
     }
 

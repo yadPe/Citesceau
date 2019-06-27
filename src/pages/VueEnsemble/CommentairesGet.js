@@ -14,30 +14,9 @@ class CommentairesGet extends Component {
         }
     }
 
-    /*
-        componentWillMount() {
-            const { Commentaires } = this.props;
-            Commentaires().then((doc) => {
-                this.setState({  });
-            });
-        }
-    */
-    /*componentWillMount() {
-        const ref = firebase.database().ref('Commentaires')
-        ref.on('value', snapshot => {
-            console.log(snapshot.val())
-            this.setState({
-                Commentaires: snapshot.val(),
-                loading: false,
-                lastkey: snapshot.key
-            })
-        })
-        console.log(this.state.lastkey)
-    }
-    */
 
     render() {
-        const { videos } = this.state
+        const { videos } = this.state;
         console.log(videos)
         return (
             <div>

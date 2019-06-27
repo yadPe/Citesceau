@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import NavBar from '../NavBar';
-import CommentairesGet from './CommmentairesGet';
+import CommentairesGet from './CommentairesGet';
 
 class VueEnsemble extends Component {
   constructor(props) {
@@ -12,7 +12,6 @@ class VueEnsemble extends Component {
     return (
       <div>
         <Header />
-        <CommentairesGet id={this.state.id} />
         <NavBar />
       </div>
     );
