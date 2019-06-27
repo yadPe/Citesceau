@@ -16,7 +16,7 @@ class NavBar extends Component {
     return (
       <div>
         <Navbar className="navbar fixed-bottom navbar-light bg-light" color="light" light expand="md" navbar-fixed-bottom>
-          <NavbarBrand href="/">
+          <NavbarBrand href="/" active>
             <img src="./assets/home.svg" className="image" />
 Home
           </NavbarBrand>
@@ -27,6 +27,10 @@ Poster
           <NavbarBrand href="/VueEnsemble">
             <img src="./assets/search.svg" className="image" />
 Voter
+          </NavbarBrand>
+          <NavbarBrand href="/Profil">
+            <img src="./assets/user.svg" className="image" />
+Profil
           </NavbarBrand>
         </Navbar>
       </div>
