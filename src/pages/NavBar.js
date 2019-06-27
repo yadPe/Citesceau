@@ -20,7 +20,7 @@ class NavBar extends Component {
           <NavbarBrand>
             <Link to="/" className="link">
               <div className="navbrand">
-                <img src="./assets/home.svg" className="image" />
+                <img src="./assets/home.svg" className="image" alt="" />
                 <p>Home</p>
               </div>
             </Link>
@@ -28,7 +28,7 @@ class NavBar extends Component {
           <NavbarBrand>
             <Link to="/NewProjet" className="link">
               <div className="navbrand">
-                <img src="./assets/edit.svg" className="image" />
+                <img src="./assets/edit.svg" className="image" alt="" />
                 <p>Poster</p>
               </div>
             </Link>
@@ -36,7 +36,7 @@ class NavBar extends Component {
           <NavbarBrand>
             <Link to="/VueEnsemble" className="link">
               <div className="navbrand">
-                <img src="./assets/search.svg" className="image" />
+                <img src="./assets/search.svg" className="image" alt="" />
                 <p>Voter</p>
               </div>
             </Link>
@@ -44,7 +44,7 @@ class NavBar extends Component {
           <NavbarBrand>
             <Link to="/Profil" className="link">
               <div className="navbrand">
-                <img src="./assets/user.svg" className="image" />
+                <img src="./assets/user.svg" className="image" alt="" />
                 <p>Profil</p>
               </div>
             </Link>

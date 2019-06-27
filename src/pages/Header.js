@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -45,15 +46,17 @@ class Header extends Component {
             marginLeft: '34px',
           }}
           >
-            <img
-              src={image}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '440px',
-              }}
-              alt="profile"
-            />
+            <Link to="/profil">
+              <img
+                src={image}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '440px',
+                }}
+                alt="profile"
+              />
+            </Link>
           </div>
           <div style={{
             display: 'flex',

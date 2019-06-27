@@ -6,7 +6,8 @@
 .navbar2{
   display: flex;
   justify-content: space-around;
-
+  height: 80px;
+  box-shadow: 0px 0px 10px rgb(189, 189, 189);
 }
 
 .navbrand{

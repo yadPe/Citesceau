@@ -4,7 +4,9 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './form.css';
+import Header from '../Header';
 import NavBar from '../NavBar';
+
 
 class NewProjet extends Component {
   constructor(props) {
@@ -15,7 +17,8 @@ class NewProjet extends Component {
   render() {
     return (
       <div className="Formulaire">
-        <Form>
+        <Header />
+        <Form style={{ padding: '5%' }}>
           <FormGroup>
             <Label for="name">Nom du projet</Label>
             <Input type="name" name="nom" id="name" />
