@@ -21,7 +21,7 @@ class Home extends Component {
         <Link to="/VueEnsemble">
           <Button color="primary" size="lg" className="ConsultationProjet">Consultation Projets</Button>
         </Link>
-        <NavBar/>
+        <NavBar />
       </div>
     );
   }
