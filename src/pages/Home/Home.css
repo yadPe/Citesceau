@@ -12,25 +12,9 @@ body{
 
 .Citoyen{
     color: black;
-    text-align: center;
     font-family: "Titre";
-    font-size: 450%;
+    font-size: 460%;
     margin-top: 10%;
-}
-
-.PropositionProjet{
-    display: flex;
-    margin: auto auto;
-    margin-top: 5%;
-    font-size: 167%;
-    margin-top: 20%;
-}
-
-.ConsultationProjet{
-    display: flex;
-    margin: auto auto;
-    margin-top: 5%;
-    font-size: 150%;
 }
 
 .CreationProfile{

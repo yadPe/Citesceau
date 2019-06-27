@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../Header';
-import NavBar from '../NavBar';
 import CardsProjet from './CardsProjet';
 import './VueEnsemble.css';
 
