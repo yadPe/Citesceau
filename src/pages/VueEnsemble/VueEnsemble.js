@@ -34,6 +34,7 @@ class VueEnsemble extends Component {
             image={card.image}
             points={card.points}
             titre={card.titre}
+            projectId={card.id}
           />
         ))}
       </div>
