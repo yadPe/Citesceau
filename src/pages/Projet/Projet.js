@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../NavBar';
-import '../Projet.css';
+import './Projet.css';
 
 class Projet extends Component {
   constructor(props) {

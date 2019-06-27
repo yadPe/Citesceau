@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../Home.css';
+import './Home.css';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar';
 
