@@ -39,7 +39,7 @@ class NewProjet extends Component {
       description,
       image,
       author: localStorage.getItem('userId'),
-    }).then(ref => history.push(`/Projets/${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }));
+    }).then(ref => history.push(`/Projet?id=${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }));
 
     event.preventDefault();
   }
