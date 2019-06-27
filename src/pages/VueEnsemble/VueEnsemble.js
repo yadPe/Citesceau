@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import NavBar from '../NavBar';
+import './VueEnsemble.css';
 
 class VueEnsemble extends Component {
   constructor(props) {

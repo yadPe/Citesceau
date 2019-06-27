@@ -27,6 +27,11 @@ class Count extends React.Component {
     });
   }
 
+  /*valider = () => {
+
+  });
+}*/
+
   render() {
     return (
       <div>
@@ -36,6 +41,7 @@ class Count extends React.Component {
         <span className="Resultats">{this.state.count}</span>
         <button onClick={this.increment}>+</button>
         <button onClick={this.increment10}>+10</button>
+        <button onClick={this.valider}>Valider</button>
       </div>
     );
   }
