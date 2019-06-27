@@ -29,6 +29,11 @@ class Firebase {
 
   newUser = (user) => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
 
+  projet = (id) => this.db.collection('Projets')
+    .doc(id)
+    .get()
+    .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
+
   projets = () => this.db.collection('Projets')
     .get()
     .then(querySnapshot => querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
