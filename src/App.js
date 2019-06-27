@@ -5,9 +5,9 @@ import NewProjet from './pages/NewProjet/NewProjet';
 import VueEnsemble from './pages/VueEnsemble/VueEnsemble';
 import Projet from './pages/Projet/Projet';
 import Profil from './pages/Profil/Profil';
-import CreationProfile from './pages/CreationProfil/CreationProfile'
-import Guide from '././pages/Guide/Guide'
-import NavBar from './pages/NavBar'
+import CreationProfile from './pages/CreationProfil/CreationProfile';
+import Guide from './pages/Guide/Guide';
+import NavBar from './pages/NavBar';
 
 
 function App() {
