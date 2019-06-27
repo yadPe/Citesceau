@@ -2,6 +2,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/storage';
 
 import React, { Component } from 'react';
 
@@ -23,11 +24,13 @@ class FirebaseProvider extends Component {
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }
+    this.storage = firebase.storage();
     this.auth = firebase.auth();
     this.firestore = firebase.firestore();
     this.googleProvider = new firebase.auth.GoogleAuthProvider();
     this.facebookProvider = new firebase.auth.FacebookAuthProvider();
     this.state = {
+      storage: this.storage,
       auth: this.auth,
       firestore: this.firestore,
       googleProvider: this.googleProvider,
