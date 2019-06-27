@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   Navbar,
   NavbarBrand,
-  NavLink,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import './NavBar.css';
 
 class NavBar extends Component {
   constructor(props) {
@@ -21,11 +21,11 @@ class NavBar extends Component {
 Home
           </NavbarBrand>
           <NavbarBrand href="/NewProjet">
-            <img src="./assets/edit.svg" style={{ maxWidth: '20px' }} />
+            <img src="./assets/edit.svg" className="image" />
 Poster
           </NavbarBrand>
           <NavbarBrand href="/VueEnsemble">
-            <img src="./assets/search.svg" style={{ maxWidth: '20px' }} />
+            <img src="./assets/search.svg" className="image" />
 Voter
           </NavbarBrand>
         </Navbar>

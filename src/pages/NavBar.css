@@ -1,0 +1,5 @@
+.image {
+  max-width: 30px;
+  display: flex;
+  justify-content: center;
+}
