@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-around;
 
-
 }
 
 .navbrand{
@@ -15,4 +14,9 @@
   flex-direction: column;
   display: flex;
   align-items: center;
+}
+
+.link {
+  color: black;
+  
 }

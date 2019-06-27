@@ -4,26 +4,21 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      points: 0,
-      image: 'https://image.noelshack.com/fichiers/2019/26/4/1561629356-nopic.jpg',
+      userInfo: {},
     };
   }
 
-  uploadPoint = () => {
+  componentWillMount() {
     this.setState({
-      points: 0,
-    });
-  }
-
-  uploadImage = () => {
-    this.setState({
-      image: '',
+      userInfo: {
+        Image: 'https://firebasestorage.googleapis.com/v0/b/hackatown-645d6.appspot.com/o/Medias%2FProfiles%2FAragorn1024-1230603_140x140.jpg?alt=media&token=53a9dfbf-471c-44fd-92f3-dbf9c3aff7c4',
+        Points: 100,
+      },
     });
   }
 
   render() {
-    const { points } = this.state;
-    const { image } = this.state;
+    const { userInfo } = this.state;
     return (
       <header style={{
         height: '55px',
@@ -46,7 +41,7 @@ class Header extends Component {
           }}
           >
             <img
-              src={image}
+              src={userInfo.Image}
               style={{
                 width: '100%',
                 height: '100%',
@@ -68,7 +63,7 @@ class Header extends Component {
             boxShadow: '0px 0px 1px white',
           }}
           >
-            {points}
+            {userInfo.Points}
           </div>
         </div>
       </header>

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import NavBar from '../NavBar';
-import CommentairesPost from './CommentairesPost';
 import CommentairesGet from './CommmentairesGet';
 
 class VueEnsemble extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {}
   }
-
   render() {
     return (
       <div>
