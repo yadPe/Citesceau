@@ -31,3 +31,9 @@ body{
     font-family: "Titre";
     font-size: 200%;
 }
+
+.Accroche{
+    display: flex;
+    margin: auto auto;
+    font-family: "Titre";
+}
