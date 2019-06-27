@@ -5,12 +5,13 @@ import NewProjet from './pages/NewProjet/NewProjet';
 import VueEnsemble from './pages/VueEnsemble/VueEnsemble';
 import Projet from './pages/Projet/Projet';
 import Profil from './pages/Profil/Profil';
+import CreationProfile from './pages/CreationProfil/CreationProfile'
+import NavBar from './pages/NavBar'
 
 
 function App() {
   return (
     <div className="App">
-
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -18,7 +19,9 @@ function App() {
           <Route path="/VueEnsemble" component={VueEnsemble} />
           <Route path="/Projet" component={Projet} />
           <Route path="/Profil" component={Profil} />
+          <Route path="/CreationProfile" component={CreationProfile} />
         </Switch>
+        <NavBar/>
       </BrowserRouter>
 
     </div>

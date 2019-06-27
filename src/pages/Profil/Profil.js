@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from '../NavBar';
 import './Profil.css';
 
 class Profil extends Component {
@@ -38,7 +37,6 @@ class Profil extends Component {
         </h3>
         <h3 className="Votes">Votes</h3>
         <h4 className="Propositions">Proposition</h4>
-        <NavBar />
       </div>
     );
   }
