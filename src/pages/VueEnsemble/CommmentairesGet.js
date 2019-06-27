@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import CommentairesPost from './CommentairesPost';
-//import * as firebase from 'firebase';
-//import Config from './Config';
+import withFirebaseContext from '../../Firebase/withFirebaseContext';
+
 
 
 class CommentairesGet extends Component {
 
-    constructor() {
-        super()
-        //firebase.initializeApp(Config)
+    constructor(props) {
+        super(props)
         this.state = {
-            loading: true
+            loading: true,
+            videos: [],
         }
     }
 
+    /*
+        componentWillMount() {
+            const { Commentaires } = this.props;
+            Commentaires().then((doc) => {
+                this.setState({  });
+            });
+        }
+    */
     /*componentWillMount() {
         const ref = firebase.database().ref('Commentaires')
         ref.on('value', snapshot => {
@@ -29,7 +37,8 @@ class CommentairesGet extends Component {
     */
 
     render() {
-
+        const { videos } = this.state
+        console.log(videos)
         return (
             <div>
                 {<div className='bg'></div>}
@@ -51,4 +60,4 @@ class CommentairesGet extends Component {
     }
 }
 
-export default CommentairesGet;
+export default withFirebaseContext(CommentairesGet);

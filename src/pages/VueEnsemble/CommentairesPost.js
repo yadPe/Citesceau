@@ -9,7 +9,10 @@ class CommentairesPost extends Component {
         super(props)
         this.state = {
             author: '',
-            projetId: '',
+            comment: '',
+            like: 0,
+
+
         }
     }
 
@@ -17,8 +20,7 @@ class CommentairesPost extends Component {
         this.setState({
             visible: true
         });
-        this.sendToDb()
-        document.getElementById("test").reset();
+        this.comments()
     }
 
     closeModal() {
@@ -28,32 +30,36 @@ class CommentairesPost extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({
-
-            [e.target.name]: e.target.value
-
-        })
+        this.setState({ [e.target.name]: e.target.value, })
 
     }
 
-    /*sendToDb = () => {
+    comments = () => {
+        // Récupération du Firestore grâce à context
+        const { newCommentaire, history } = this.props;
+        const {
+            comment, like
+        } = this.state;
+        // Envoi d'infos dans le cloud Firestore
+        newCommentaire({
+            author: localStorage.getItem('userId'),
+            comment,
+            like,
+        }).then(ref => history.push(`/Project?id=${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }));
 
-        firebase.database().ref('Commentaires').push({
-            Prénom: this.state.Prénom,
-            msg: this.state.message
+    }
 
-        });
-    }*/
     render() {
         return (
             <Form id='test'>
+                {/*
                 <FormGroup>
                     <Label className='Prenom' for="exampleEmail">Prénom</Label>
                     <Input type="text" onChange={this.handleChange} value={this.state.Prénom} name="Prénom" id="text" placeholder="Votre Prénom" />
-                </FormGroup>
+                </FormGroup>*/}
                 <FormGroup>
                     <Label className='Coms' for="exampleText">Commentaire</Label>
-                    <Input type="textarea" onChange={this.handleChange} value={this.state.message} name="message" id="exampleText" placeholder="Votre Commentaire" />
+                    <Input type="textarea" onChange={this.handleChange} value={this.state.comment} name="comment" id="exampleText" placeholder="Votre Commentaire" />
                 </FormGroup>
                 <Button className='PostButton' type="button" value="Open" onClick={() => this.openModal()}>Poster</Button>
                 <Modal

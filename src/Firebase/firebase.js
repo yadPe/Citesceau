@@ -35,12 +35,12 @@ class Firebase {
 
   newProjet = projet => this.db.collection('Projets').add({ ...projet, creationDate: new Date(), points: 0 });
 
-   commentaires = ProjetId => this.db.collection('Commentaires')
-     .where('projetId', '==', ProjetId)
-     .get()
-     .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+  commentaires = ProjetId => this.db.collection('Commentaires')
+    //.where('projetId', '==', ProjetId)
+    .get()
+    .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
 
-     newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
+  newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
 }
 
 

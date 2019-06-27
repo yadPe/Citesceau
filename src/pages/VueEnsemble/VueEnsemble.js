@@ -12,7 +12,7 @@ class VueEnsemble extends Component {
     return (
       <div>
         <Header />
-        <CommentairesGet />
+        <CommentairesGet id={this.state.id} />
         <NavBar />
       </div>
     );

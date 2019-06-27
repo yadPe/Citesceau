@@ -53,6 +53,7 @@ class Signup extends Component {
     const {
       username, email, firstName, image,
     } = this.state;
+    localStorage.setItem('username', username);
     // Envoi d'infos dans le cloud Firestore
     newUser({
       name: username,
