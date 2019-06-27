@@ -27,3 +27,17 @@
     color: white;
     text-align: center
 }
+
+.Points{
+    color: white;
+    text-align: center
+}
+
+.Resultats{
+    color: white;
+}
+
+.Counttt{
+    display: flex;
+    justify-content: center;
+}
