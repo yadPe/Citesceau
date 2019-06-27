@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-//import * as firebase from 'firebase'
-
 
 const comments = [
     {
@@ -35,10 +33,6 @@ class CommentairesPost extends Component {
         this.state = {
             author: '',
             projetId: '',
-            comment: '',
-            creationDate: '',
-            likes: '',
-            visible: false
         }
     }
 
