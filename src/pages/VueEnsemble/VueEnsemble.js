@@ -11,10 +11,10 @@ class VueEnsemble extends Component {
     this.tabCards = [{
       author: 'Jack',
       creationDate: '27 Juin 2019',
-      description: 'zpoefjzeoifjzeofzpoefjzedqsdqsdqsd qsd qsd qsd qsd oifjzeof',
+      description: 'Circa hos dies Lollianus primae lanuginis adulescens, Lampadi filius ex praefecto, exploratius causam Maximino spectante, convictus codicem noxiarum artium nondum per aetatem firmato consilio descripsisse, exulque mittendus, ut sperabatur, patris inpulsu provocavit ad principem, et iussus ad eius comitatum duci, de fumo, ut aiunt, in flammam traditus Phalangio Baeticae consulari cecidit funesti carnificis manu.',
       image: 'https://image.noelshack.com/fichiers/2019/26/4/1561627553-546335.jpg',
       points: 0,
-      titre: 'azd azd a dsq dsq dqsd qsd qs dza daz dazd azd azd azd azd azd azzad za dazd azd azd azd azd azd azd azd dazz',
+      titre: 'Bouteille biere hellooo',
     }];
   }
 
@@ -36,7 +36,6 @@ class VueEnsemble extends Component {
             titre={card.titre}
           />
         ))}
-        <NavBar />
       </div>
     );
   }

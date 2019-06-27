@@ -1,23 +1,23 @@
 .image {
-  max-width: 28px;
-  vertical-align: middle;
+  width: 25px;
 }
 
 .navbar2{
   display: flex;
   justify-content: space-around;
-  height: 80px;
+  height: 60px;
+  padding-top: 10px; 
   box-shadow: 0px 0px 10px rgb(189, 189, 189);
+  font-family: 'Russo One';
 }
 
 .navbrand{
-
   flex-direction: column;
   display: flex;
   align-items: center;
+  height: 50px;
 }
 
 .link {
   color: black;
-  
 }

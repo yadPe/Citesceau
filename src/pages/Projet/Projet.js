@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from '../NavBar';
 import './Projet.css';
 import Count from './Count';
 
@@ -8,6 +7,7 @@ class Projet extends Component {
     super(props);
     this.state = {};
   }
+
 
   render() {
     return (
@@ -21,8 +21,7 @@ class Projet extends Component {
         </div>
         <h3 className="CommentairesTitre">Commentaires</h3>
         <p className="Commentaires">Voici mon commentaire je suis le boss ou pas?!</p>
-        <NavBar />
-      </div >
+      </div>
     );
   }
 }

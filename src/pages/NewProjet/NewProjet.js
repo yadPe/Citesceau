@@ -1,43 +1,92 @@
 import React, { Component } from 'react';
 import {
-  Button, Form, FormGroup, Label, Input, FormText,
+  Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import './form.css';
+import { withRouter } from 'react-router';
 import Header from '../Header';
-import NavBar from '../NavBar';
+import ImageUpload from '../ImageUpload';
+import withFirebaseContext from '../../Firebase/withFirebaseContext';
+import './NewProjet.css';
 
 
 class NewProjet extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      titre: '',
+      description: '',
+      image: '',
+    };
+  }
+
+  getImageURL = (url) => {
+    this.setState({ image: url });
+  }
+
+  onChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onSubmit = (event) => {
+    const { newProjet, history } = this.props;
+    const {
+      titre, description, image,
+    } = this.state;
+
+    newProjet({
+      titre,
+      description,
+      image,
+      author: localStorage.getItem('userId'),
+    }).then(ref => history.push(`/Projets/${ref.id}`)).catch(err => this.setState({ error: 'Oops ! Ca marche pas' }));
+
+    event.preventDefault();
   }
 
   render() {
+    const {
+      titre, description, image, error,
+    } = this.state;
+    const isInvalid = titre === ''
+      || description === ''
+      || image === '';
     return (
       <div className="Formulaire">
         <Header />
-        <Form style={{ padding: '5%' }}>
+        <div>{error}</div>
+        <Form onSubmit={this.onSubmit} style={{ padding: '5%' }}>
           <FormGroup>
-            <Label for="name">Nom du projet</Label>
-            <Input type="name" name="nom" id="name" />
+            <Label for="name">Titre du projet</Label>
+            <Input
+              type="name"
+              name="titre"
+              label="name"
+              id="name"
+              onChange={this.onChange}
+              value={titre}
+            />
           </FormGroup>
           <FormGroup>
             <Label for="File">Télécharger une image</Label>
-            <Input type="file" name="file" className="File" />
-            <FormText color="muted" />
+            <ImageUpload reportImageUrl={this.getImageURL} collection="Projets" />
           </FormGroup>
           <FormGroup>
-            <Label for="Text">Description du projet</Label>
-            <Input type="textarea" name="text" id="Text" />
+            <Label for="text">Description du projet</Label>
+            <Input
+              type="textarea"
+              name="description"
+              label="text"
+              id="text"
+              onChange={this.onChange}
+              value={description}
+            />
           </FormGroup>
-          <Button>Valider mon projet</Button>
+          <Button onclick={this.onSubmit} disabled={isInvalid}>Valider mon projet</Button>
         </Form>
-        <NavBar />
       </div>
     );
   }
 }
 
-export default NewProjet;
+export default withRouter(withFirebaseContext(NewProjet));

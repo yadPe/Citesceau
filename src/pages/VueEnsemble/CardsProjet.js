@@ -60,25 +60,27 @@ const CardsProjet = (props) => {
 
           </div>
           <h2 style={{
-            fontSize: '15px',
+            fontSize: '17px',
             maxWidth: '220px',
             minWidth: '220px',
             maxHeight: '85px',
             overflow: 'hidden',
             padding: '4%',
+            fontFamily: 'Russo One',
           }}
           >
             {titre}
           </h2>
         </div>
         <div style={{
-          fontSize: '13px',
+          fontSize: '15px',
           lineHeight: '16px',
           paddingTop: '2%',
           marginBottom: '4px',
           marginLeft: '1px',
           overflow: 'hidden',
           maxHeight: '5.5em',
+          fontFamily: 'Pragati Narrow',
         }}
         >
           {description}
