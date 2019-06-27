@@ -1,0 +1,49 @@
+.Projet{
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+}
+
+.ImageProjet{
+    display: flex;
+    margin: auto auto;
+}
+
+.DescriptionTitre{
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+}
+
+.DescriptionProjet{
+    color: black;
+    text-align: center;
+    background-color: rgb(192,192,192, 0.5)
+}
+
+.CommentairesTitre{
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+}
+
+.Commentaires{
+    color: black;
+    text-align: center;
+    background-color: rgb(192,192,192, 0.5)
+}
+
+.Points{
+    color: black;
+    text-align: center;
+    font-family: "Titre";
+}
+
+.Resultats{
+    color: black;
+}
+
+.Counttt{
+    display: flex;
+    justify-content: center;
+}
