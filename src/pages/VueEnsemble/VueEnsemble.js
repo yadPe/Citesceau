@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header';
 import NavBar from '../NavBar';
 
 class VueEnsemble extends Component {
@@ -10,6 +11,7 @@ class VueEnsemble extends Component {
   render() {
     return (
       <div>
+        <Header />
         <NavBar />
       </div>
     );
