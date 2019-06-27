@@ -1,13 +1,19 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 
 const CardsProjet = (props) => {
-  const { author } = props;
-  const { creationDate } = props;
-  const { description } = props;
-  const { image } = props;
-  const { points } = props;
-  const { titre } = props;
+  const { 
+    author,
+    creationDate,
+    description,
+    image,
+    points,
+    titre,
+    projectId,
+    history
+   } = props;
+
   return (
     <div className="cardscenter" style={{ paddingTop: '5%' }}>
       <div
@@ -95,9 +101,9 @@ const CardsProjet = (props) => {
             {author}
           </div>
         </div>
-        <button type="button" className="btn btn-info" style={{ width: '100%', marginTop: '2%' }}>Voir le projet</button>
+        <button type="button" className="btn btn-info" style={{ width: '100%', marginTop: '2%' }} onClick={() => history.push(`/Projet?id=${projectId}`)}>Voir le projet</button>
       </div>
     </div>
   );
 };
-export default CardsProjet;
+export default withRouter(CardsProjet);
