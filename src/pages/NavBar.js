@@ -18,7 +18,7 @@ class NavBar extends Component {
       <div>
         <Navbar className="navbar navbar2 fixed-bottom navbar-light bg-light" color="light" light expand="md" navbar-fixed-bottom>
           <NavbarBrand>
-            <Link to="/">
+            <Link to="/" className="link">
               <div className="navbrand">
                 <img src="./assets/home.svg" className="image" />
                 <p>Home</p>
@@ -26,7 +26,7 @@ class NavBar extends Component {
             </Link>
           </NavbarBrand>
           <NavbarBrand>
-            <Link to="/NewProjet">
+            <Link to="/NewProjet" className="link">
               <div className="navbrand">
                 <img src="./assets/edit.svg" className="image" />
                 <p>Poster</p>
@@ -34,7 +34,7 @@ class NavBar extends Component {
             </Link>
           </NavbarBrand>
           <NavbarBrand>
-            <Link to="/VueEnsemble">
+            <Link to="/VueEnsemble" className="link">
               <div className="navbrand">
                 <img src="./assets/search.svg" className="image" />
                 <p>Voter</p>
@@ -42,7 +42,7 @@ class NavBar extends Component {
             </Link>
           </NavbarBrand>
           <NavbarBrand>
-            <Link to="/Profil">
+            <Link to="/Profil" className="link">
               <div className="navbrand">
                 <img src="./assets/user.svg" className="image" />
                 <p>Profil</p>
