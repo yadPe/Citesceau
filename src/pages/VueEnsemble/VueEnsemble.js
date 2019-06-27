@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../NavBar';
+import CardsProjet from './CardsProjet';
+import './VueEnsemble.css';
 
 class VueEnsemble extends Component {
   constructor(props) {
@@ -10,6 +12,9 @@ class VueEnsemble extends Component {
   render() {
     return (
       <div>
+        <div className='cardsProject'>
+          <CardsProjet />
+        </div>
         <NavBar />
       </div>
     );
