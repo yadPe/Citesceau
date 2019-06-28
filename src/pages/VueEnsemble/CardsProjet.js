@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 
 const CardsProjet = (props) => {
   const {
-    author,
     creationDate,
     description,
     image,
@@ -45,7 +44,7 @@ const CardsProjet = (props) => {
           >
             {points}
           </div>
-          <div style={{ color: 'grey', fontSize: '14px' }}>
+          <div style={{ color: 'grey', fontSize: '14px', fontFamily: 'Pragati Narrow' }}>
             {creationDate}
           </div>
         </div>
@@ -59,7 +58,7 @@ const CardsProjet = (props) => {
               src={image}
               alt="lol"
               style={{
-                width: '100%',
+                width: '84%',
                 height: '100%',
               }}
             />
@@ -71,7 +70,7 @@ const CardsProjet = (props) => {
             minWidth: '220px',
             maxHeight: '85px',
             overflow: 'hidden',
-            padding: '4%',
+            padding: '-26%',
             fontFamily: 'Russo One',
           }}
           >
@@ -79,7 +78,7 @@ const CardsProjet = (props) => {
           </h2>
         </div>
         <div style={{
-          fontSize: '16px',
+          fontSize: '19px',
           lineHeight: '16px',
           paddingTop: '3%',
           marginBottom: '4px',
@@ -87,21 +86,22 @@ const CardsProjet = (props) => {
           overflow: 'hidden',
           maxHeight: '4.5em',
           fontFamily: 'Pragati Narrow',
+          opacity: '0.9',
         }}
         >
           {description}
-          <div style={{
-            fontSize: '16px',
-            fontWeight: 'bold',
-            color: 'black',
-            fontFamily: 'Noto Sans',
-            paddingTop: '2px',
-          }}
-          >
-            {author}
-          </div>
         </div>
-        <button type="button" className="btn btn-info" style={{ width: '100%', marginTop: '2%' }} onClick={() => history.push(`/Projet?id=${projectId}`)}>Voir le projet</button>
+        <button
+          type="button"
+          className="btn btn-info"
+          style={{
+            fontFamily: 'Pragati Narrow', fontSize: '20px', width: '100%', marginTop: '2%',
+          }}
+          onClick={() => history.push(`/Projet?id=${projectId}`)}
+        >
+Voir le projet
+
+        </button>
       </div>
     </div>
   );
