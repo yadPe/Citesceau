@@ -69,7 +69,7 @@ class Firebase {
   * @return {Array} Array of comment objects ordered by timestamp - latest first
   */
   commentaires = ProjetId => this.db.collection('Commentaires')
-    .where('projetId', '==', ProjetId)
+    //.where('projetId', '==', ProjetId)
     .orderBy('creationDate', 'desc')
     .get()
     .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))

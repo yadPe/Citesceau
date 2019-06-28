@@ -10,29 +10,32 @@ class CommentairesGet extends Component {
         super(props)
         this.state = {
             loading: true,
-            videos: [],
+            cmm: [],
         }
     }
-
-
+    componentDidMount() {
+        const { commentaires } = this.props;
+        commentaires()
+            .then(coms => this.setState({ cmm: coms }))
+            .catch(console.error)
+    }
     render() {
-        const { videos } = this.state;
-        console.log(videos)
+        console.log(author)
         return (
             <div>
                 {<div className='bg'></div>}
                 <div className='app-container'>
                     <CommentairesPost />
 
-                    {this.state.Commentaires
-                        ? Object.values(this.state.Commentaires).map(
-                            (perso, i) => (<div className='ComsBack'>
-                                < h1 className='Prenomback' key={i} > {perso.Prénom} </h1>
-                                <p> {perso.msg}</p>
+                    {this.state.cmm
+                        .map(
+                            cmt => (<div className='ComsBack'>
+                                < h1 className='Prenomback'> {cmt.author} </h1>
+                                <p> {cmt.like}</p>
                             </div>
                             )
                         )
-                        : ''}
+                    }
                 </div>
             </div >
         );
