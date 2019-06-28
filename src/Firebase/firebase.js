@@ -19,8 +19,6 @@ class Firebase {
     this.db = app.firestore();
     this.auth = app.auth();
     this.storage = app.storage();
-
-    this.getUsernameByUserId('1UZqSt2s8YXOcbUwxslOlD6Pfoj1').then(console.log)
   }
 
   /**
@@ -108,7 +106,10 @@ class Firebase {
         .catch(reject)
       const senderNewBalance = senderBalance - amount;
       console.log(senderBalance)
-      if (senderNewBalance < 0) reject('Sender does not have enought points');
+      if (senderNewBalance < 0) {
+        reject({ code: 1, error: 'Sender does not have enought points' })
+        return
+      };
       await this.db.collection('Users').doc(from).update({ points: senderNewBalance })
         .catch(reject)
       let receiverBalance, receiverType = null;
