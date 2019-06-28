@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withFirebaseContext from '../Firebase/withFirebaseContext';
 
-class ImageProfile extends Component {
+class ImageUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,4 +68,4 @@ Upload
   }
 }
 
-export default withFirebaseContext(ImageProfile);
+export default withFirebaseContext(ImageUpload);
