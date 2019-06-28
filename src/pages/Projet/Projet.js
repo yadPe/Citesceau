@@ -9,19 +9,28 @@ import CommentairesGet from '../VueEnsemble/CommentairesGet';
 class Projet extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      Commentaires: [],
+    };
   }
 
   componentDidMount() {
     const id = getUrlParams('id')
-    const { projet, projets } = this.props;
+    const { projet, projets, commentaires } = this.props;
     console.log(id);
     if (id) {
       projet(id).then(data => {
-        this.setState({ ...data, id })
+        this.setState({ ...data, id },
+          () => {
+            commentaires(id)
+              .then(userComments => this.setState({ userComments }))
+              //then(data => this.setState({ com: data }))
+              .catch(console.error)
+          })
       }).catch(console.error)
     }
   }
+
 
   render() {
     const { author, creationDate, description, image, points, titre } = this.state;
@@ -41,7 +50,7 @@ class Projet extends Component {
           <Count value={points} />
         </div>
         <h3 className="CommentairesTitre">Commentaires</h3>
-        <p className="Commentaires"><CommentairesGet /></p>
+        <p className="Commentaires"><CommentairesGet com={this.state.userComments} /></p>
       </div>
     );
   }

@@ -3,38 +3,42 @@ import CommentairesPost from './CommentairesPost';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 
 
-
 class CommentairesGet extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             loading: true,
-            cmm: [],
+            com: [],
         }
     }
-    componentDidMount() {
-        const { commentaires } = this.props;
-        commentaires()
-            .then(coms => this.setState({ cmm: coms }))
-            .catch(console.error)
+    componentDidUpdate() {
+        const { user, author } = this.props;
+        if (author) {
+            user(author)
+                .then(console.log)
+                //then(data => this.setState({ com: data }))
+                .catch(console.error)
+
+        }
     }
     render() {
-        console.log(author)
+        const { com } = this.props;
         return (
             <div>
                 {<div className='bg'></div>}
                 <div className='app-container'>
                     <CommentairesPost />
 
-                    {this.state.cmm
-                        .map(
-                            cmt => (<div className='ComsBack'>
-                                < h1 className='Prenomback'> {cmt.author} </h1>
-                                <p> {cmt.like}</p>
+                    {com ?
+                        com.map(
+                            cmt => (<div className='ComsBack' style={{ backgroundColor: 'white' }}>
+                                < h1 className='Prenomback'></h1>
+                                <p> {cmt.comment}</p>
+                                <p>{cmt.author}</p>
                             </div>
                             )
-                        )
+                        ) : null
                     }
                 </div>
             </div >
