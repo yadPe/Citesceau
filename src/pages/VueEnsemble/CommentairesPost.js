@@ -14,8 +14,6 @@ class CommentairesPost extends Component {
             comment: '',
             like: 0,
             projetId: '',
-
-
         }
     }
 
@@ -29,7 +27,7 @@ class CommentairesPost extends Component {
     closeModal() {
         this.setState({
             visible: false
-        });
+        }, () => window.location.reload());
     }
 
     handleChange = (e) => {
