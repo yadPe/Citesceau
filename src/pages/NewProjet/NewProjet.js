@@ -69,7 +69,7 @@ class NewProjet extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="File">Télécharger une image</Label>
-            <ImageUpload reportImageUrl={this.getImageURL} collection="Projets" />
+            <ImageUpload reportImageUrl={this.getImageURL} collection="Projets" style={{ maxWidth: '200px' }} />
           </FormGroup>
           <FormGroup>
             <Label for="text">Description du projet</Label>

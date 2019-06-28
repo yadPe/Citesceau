@@ -1,6 +1,8 @@
 /* eslint-disable prefer-destructuring */
 import React, { Component } from 'react';
+import { Badge } from 'reactstrap';
 import { withRouter } from 'react-router';
+import Header from '../Header';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import './Profil.css';
 
@@ -39,22 +41,24 @@ class Profil extends Component {
 
     return (
       <div>
+        <Header />
         <h1 className="Profil">Profil</h1>
-        <h2 className="firstName">{firstName}</h2>
-        <h2 className="firstName">{name}</h2>
         <img className="ImageProfil" src={image} alt="profil" />
-        <h2 className="NombrePoints">Nombre de points</h2>
-        <h3 className="NombresPoints2">
+        <h2 className="firstName">
+          {firstName}
+          {' '}
+          {name}
+        </h2>
+        <Badge className="NombresPoints2">
           {points}
           {' '}
           bitcolds
-        </h3>
-        {points}
+        </Badge>
+        <hr />
         <h3 className="Votes">Votes</h3>
-        <h4 className="Propositions">Proposition</h4>
+        <h4 className="Propositions">Mes propositions de projets</h4>
         {projets.map(projet => (
-          <div onClick={() => history.push(`/projet?id=${projet.id}`)}>{projet.titre}</div>
-
+          <div className="projett" onClick={() => history.push(`/projet?id=${projet.id}`)}>{projet.titre}</div>
         ))}
       </div>
     );

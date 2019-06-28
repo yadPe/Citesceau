@@ -2,12 +2,14 @@
     color: black;
     text-align: center;
     font-family: "Titre";
+    padding-top: 20px;
 }
 
 .ImageProfil{
     display: flex;
     margin: auto auto;
-    max-width: 60%;
+    max-width: 40%;
+    padding-top: 20px;
 }
 
 .NombrePoints{
@@ -26,11 +28,25 @@
 }
 
 .NombresPoints2{
-    color: black;
-    text-align: center;
-    background-color: rgb(192,192,192, 0.5)
+    color:white;
+    background-color:#3CB371;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    border-color: #3CB371;
+    width: 60%;
+    font-size: 160%;
+    display: block;
+    margin : auto;
+
 }
 
-.hro {
-    color: black;
+.firstName{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.projett{
+    text-align: center;
 }
