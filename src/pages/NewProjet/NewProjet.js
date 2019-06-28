@@ -82,7 +82,7 @@ class NewProjet extends Component {
               value={description}
             />
           </FormGroup>
-          <Button style={{ backgroundColor: '#17a2b8', borderColor: '#17a2b8' }} onclick={this.onSubmit} disabled={isInvalid}>Valider mon projet</Button>
+          <Button style={{ fontSize: '22px', backgroundColor: '#17a2b8', borderColor: '#17a2b8' }} onclick={this.onSubmit} disabled={isInvalid}>Valider mon projet</Button>
         </Form>
       </div>
     );
