@@ -40,9 +40,29 @@
 
 .Resultats{
     color: black;
+    font-size: 40px;
 }
 
 .Counttt{
     display: flex;
     justify-content: center;
+}
+
+.bouton{
+  border-radius: 10px;
+  background:#3CB371;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  font-size: 18px;
+  font-weight:bold;
+  color: white;
+}
+
+.boutonval{
+    padding-top: 8px;
+}
+
+.buttoon{
+    text-align: center;
 }
