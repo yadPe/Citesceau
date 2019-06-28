@@ -4,7 +4,7 @@ import Count from './Count';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import { getUrlParams, timeSince } from '../../Helpers'
 import CommentairesGet from '../VueEnsemble/CommentairesGet';
-
+import CommentairesPost from '../VueEnsemble/CommentairesPost';
 
 class Projet extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Projet extends Component {
         this.setState({ ...data, id },
           () => {
             commentaires(id)
-              .then(userComments => this.setState({ userComments }))
+              .then(Commentaires => this.setState({ Commentaires }))
               //then(data => this.setState({ com: data }))
               .catch(console.error)
           })
@@ -34,7 +34,7 @@ class Projet extends Component {
 
   render() {
     const {
-      author, creationDate, description, image, points, titre,
+      creationDate, description, image, points, titre,
     } = this.state;
     let time = null;
     if (creationDate) {
@@ -57,7 +57,16 @@ class Projet extends Component {
         </div>
         <hr />
         <h3 className="CommentairesTitre">Commentaires</h3>
-        <p className="Commentaires"><CommentairesGet com={this.state.userComments} /></p>
+        <div> <CommentairesPost
+        /></div>
+        <div className="Commentaires">{this.state.Commentaires.map(come => (
+          <CommentairesGet
+            like={come.like}
+            comment={come.comment}
+            creationDate={come.creationDate}
+            projetId={come.projetId}
+            author={come.author}
+          />))}</div>
       </div>
     );
   }

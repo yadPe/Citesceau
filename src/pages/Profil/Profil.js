@@ -50,7 +50,6 @@ class Profil extends Component {
           bitcolds
         </h3>
         {points}
-        <h3 className="Votes">Votes</h3>
         <h4 className="Propositions">Proposition</h4>
         {projets.map(projet => (
           <div onClick={() => history.push(`/projet?id=${projet.id}`)}>{projet.titre}</div>

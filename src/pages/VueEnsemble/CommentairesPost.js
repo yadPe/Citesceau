@@ -3,6 +3,7 @@ import Modal from 'react-awesome-modal';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import { getUrlParams } from '../../Helpers'
+import './VueEnsemble.css';
 
 
 class CommentairesPost extends Component {
@@ -65,7 +66,9 @@ class CommentairesPost extends Component {
                     <Label className='Coms' for="exampleText">Commentaire</Label>
                     <Input type="textarea" onChange={this.handleChange} value={this.state.comment} name="comment" id="exampleText" placeholder="Votre Commentaire" />
                 </FormGroup>
-                <Button className='PostButton' type="button" value="Open" onClick={() => this.openModal()}>Poster</Button>
+                <div classNalme='buttoncom'>
+                    <Button className='PostButton' type="button" value="Open" onClick={() => this.openModal()}>Poster</Button>
+                </div>
                 <Modal
                     visible={this.state.visible}
                     width="400"

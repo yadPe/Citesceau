@@ -8,42 +8,33 @@ class CommentairesGet extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            loading: true,
-            com: [],
+            username: '',
         }
     }
-    componentDidUpdate() {
-        const { user, author } = this.props;
+
+
+    componentDidMount() {
+        const { author, getUsernameByUserId } = this.props;
         if (author) {
-            user(author)
-                .then(console.log)
-                //then(data => this.setState({ com: data }))
-                .catch(console.error)
-
+            getUsernameByUserId(author).then(username => this.setState({ username }))
         }
     }
-    render() {
-        const { com } = this.props;
-        return (
-            <div>
-                {<div className='bg'></div>}
-                <div className='app-container'>
-                    <CommentairesPost />
 
-                    {com ?
-                        com.map(
-                            cmt => (<div className='ComsBack' style={{ backgroundColor: 'white' }}>
-                                < h1 className='Prenomback'></h1>
-                                <p> {cmt.comment}</p>
-                                <p>{cmt.author}</p>
-                            </div>
-                            )
-                        ) : null
-                    }
-                </div>
-            </div >
+
+    render() {
+        const { like, comment, creationDate, projetId } = this.props;
+        const { username } = this.state;
+        return (
+            <div className='ComsBack' style={{ backgroundColor: 'white' }}>
+                < h1 className='Prenomback'></h1>
+                <p> {comment}</p>
+                <p>{username}</p>
+            </div>
         );
     }
 }
 
 export default withFirebaseContext(CommentairesGet);
+
+
+
