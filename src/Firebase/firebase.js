@@ -19,8 +19,6 @@ class Firebase {
     this.db = app.firestore();
     this.auth = app.auth();
     this.storage = app.storage();
-
-    this.getUsernameByUserId('1UZqSt2s8YXOcbUwxslOlD6Pfoj1').then(console.log)
   }
 
   /**
