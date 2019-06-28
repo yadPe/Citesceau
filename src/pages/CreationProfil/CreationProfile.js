@@ -82,8 +82,8 @@ class Signup extends Component {
       || username === ''
       || image === '';
     return (
-      <div className='CreationProfil'>
-        <Form onSubmit={this.onSubmit} className="classesContainer" autoComplete="off">
+      <div className="CreationProfil">
+        <Form style={{ marginTop: '5%' }} onSubmit={this.onSubmit} className="classesContainer" autoComplete="off">
           <FormGroup>
             <div className="Prénom">
               <Label for="firstName">Prénom</Label>
@@ -96,7 +96,7 @@ class Signup extends Component {
                 className="textfield"
                 value={firstName}
                 onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
+                style={{ width: '70%' }}
               />
             </div>
           </FormGroup>
@@ -112,7 +112,7 @@ class Signup extends Component {
                 className="textfield"
                 value={username}
                 onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
+                style={{ width: '70%' }}
               />
             </div>
           </FormGroup>
@@ -136,7 +136,7 @@ class Signup extends Component {
                 className="textfield"
                 currentValue={email}
                 onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
+                style={{ width: '70%' }}
               />
             </div>
           </FormGroup>
@@ -153,7 +153,7 @@ class Signup extends Component {
                 value={passwordOne}
                 type="password"
                 onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
+                style={{ width: '70%' }}
               />
             </div>
           </FormGroup>
@@ -170,12 +170,12 @@ class Signup extends Component {
                 value={passwordTwo}
                 type="password"
                 onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
+                style={{ width: '70%' }}
               />
             </div>
           </FormGroup>
           <div className="buttonnn">
-            <Button onclick={this.onSubmit} disabled={isInvalid}>Je me connecte</Button>
+            <Button style={{ backgroundColor: '#17a2b8', borderColor: '#17a2b8' }} onclick={this.onSubmit} disabled={isInvalid}>Je me connecte</Button>
           </div>
         </Form>
         {error && <p>{error.message}</p>}
