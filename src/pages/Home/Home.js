@@ -31,7 +31,7 @@ class Home extends Component {
             className="CreationProfile"
             size="lg"
             style={{
-              width: '45%', fontSize: '18px', marginTop: '100px', backgroundColor: '#3CB371', borderColor: '#3CB371',
+              width: '45%', fontSize: '18px', marginTop: '80px', backgroundColor: '#3CB371', borderColor: '#3CB371',
             }}
           >
 Inscription
