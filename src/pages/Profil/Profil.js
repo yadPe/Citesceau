@@ -1,59 +1,62 @@
+/* eslint-disable prefer-destructuring */
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import './Profil.css';
-import Header from '../Header';
 
 class Profil extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      profile: {},
+      projets: [],
     };
   }
 
-  componentWillMount() {
-    const { user, authorId } = this.props;
-    user(localStorage.getItem('userId')).then((data) => {
-      this.setState({ ...data });
+  async componentWillMount() {
+    const { user, getProjectByAuthorId } = this.props;
+    let { profile } = this.state;
+    const userId = localStorage.getItem('userId');
+    await user(userId).then((data) => {
+      profile = data;
     });
 
-
-    // projets().then((data) => {
-    //   this.setState({ ...data });
-    // });
+    await getProjectByAuthorId(userId).then((projets) => {
+      this.setState({
+        projets, profile,
+      });
+    });
   }
-
-  identification = () => {
-    const { authorId } = this.props;
-    authorId().then((data) => {
-      this.setState({ ...data });
-    }); console.log(authorId);
-  }
-
 
   render() {
     const {
-      image, points,
+      profile, projets,
     } = this.state;
-    const { authorId, projets } = this.props;
-    console.log(authorId);
+    const { history } = this.props;
+    const {
+      firstName, name, image, points,
+    } = profile;
+
     return (
       <div>
         <h1 className="Profil">Profil</h1>
+        <h2 className="firstName">{firstName}</h2>
+        <h2 className="firstName">{name}</h2>
         <img className="ImageProfil" src={image} alt="profil" />
         <h2 className="NombrePoints">Nombre de points</h2>
         <h3 className="NombresPoints2">
-          {points}
-          {' '}
           points
         </h3>
+        {points}
         <h3 className="Votes">Votes</h3>
-        {projets}
         <h4 className="Propositions">Proposition</h4>
-        {/* {authorId ? { points } : ''} */}
+        {projets.map(projet => (
+          <div onClick={() => history.push(`/projet?id=${projet.id}`)}>{projet.titre}</div>
+
+        ))}
       </div>
     );
   }
 }
 
-export default (withFirebaseContext(Profil));
+export default withRouter(withFirebaseContext(Profil));
