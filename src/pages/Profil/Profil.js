@@ -32,11 +32,11 @@ class Profil extends Component {
         <div style={{ padding: '5%' }}>
           <h1 className="Profil">Profil</h1>
           <img className="ImageProfil" src={userInfo.Image ? userInfo.Image : 'http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png'} />
-          <h2 className="NombrePoints">Nombre de points</h2>
+          <h2 className="NombrePoints">Nombre de bitcold</h2>
           <h3 className="NombresPoints2">
             {userInfo.Points}
             {' '}
-          points
+          bitcold
           </h3>
           <h3 className="Votes">Votes</h3>
           <h4 className="Propositions">Proposition</h4>

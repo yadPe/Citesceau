@@ -39,9 +39,11 @@ Créé il y a
           {' '}
           {timeSince(new Date(time) || Date.now())}
         </p>
+        <hr />
         <div className="Counttt">
           <Count value={points} />
         </div>
+        <hr />
         <h3 className="CommentairesTitre">Commentaires</h3>
         <p className="Commentaires">Voici mon commentaire je suis le boss ou pas?!</p>
       </div>

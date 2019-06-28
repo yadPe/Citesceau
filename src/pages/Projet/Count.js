@@ -34,14 +34,21 @@ class Count extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2 className="Points">Points</h2>
-        <button onClick={this.decrement10}>-10</button>
-        <button onClick={this.decrement}>-</button>
+      <div className="buttoon">
+        <h2 className="Points">Bitcold</h2>
+        <button className="bouton" onClick={this.decrement10}>-10</button>
+        {' '}
+        <button className="bouton" onClick={this.decrement}>-</button>
+        {' '}
         <span className="Resultats">{this.state.count}</span>
-        <button onClick={this.increment}>+</button>
-        <button onClick={this.increment10}>+10</button>
-        <button onClick={this.valider}>Valider</button>
+        {' '}
+        <button className="bouton" onClick={this.increment}>+</button>
+        {' '}
+        <button className="bouton" onClick={this.increment10}>+10</button>
+        {' '}
+        <div className="boutonval">
+          <button className="btn btn-info" onClick={this.valider}>Valider</button>
+        </div>
       </div>
     );
   }
