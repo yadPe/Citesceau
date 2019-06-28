@@ -15,7 +15,7 @@ class Guide extends Component {
         <h1 className="TitreGuide">Guide du citoyen</h1>
         <p className="Guide">Le budget de la ville est desormais divisé en 3 parties égales : les fonds classiques dédiés au bon fonctionnement, les bitcolds qui vous sont dédiés, et les bitcolds bonus.</p>
         <h2 className="TitreGuide">Comment ca marche?</h2>
-        <p className="Guide"> Chaque année, 100 bitcold sont attribué à chaque habitant. Libre à lui de les répartir sur les projets qui l'interesse. </p>
+        <p className="Guide"> Chaque année, des bitcolds sont attribué à chaque habitant. Libre à lui de les répartir sur les projets qui l'interesse. </p>
         <h3 className="TitreGuide">Es-ce-que je peux proposer des projets?</h3>
         <p className="Guide"> Bien sur, c'est le but. Chaque habitant peut proposer une initiative. Elle sera visible aux yeux de tous, et les gens pourront décider, ou non, de lui attribuer des bitcolds en fonction de l'interet.</p>
         <h4 className="TitreGuide">Que se passe-t-il quand un projet est financé?</h4>
