@@ -25,6 +25,7 @@
 .Propositions{
     color: black;
     text-align: center;
+    padding-top: 20px;
 }
 
 .NombresPoints2{
@@ -49,4 +50,11 @@
 
 .projett{
     text-align: center;
+}
+
+.plus{
+    background-color:#138496;
+    border-color: #138496;
+    display: block;
+    margin : auto;
 }
