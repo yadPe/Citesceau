@@ -57,7 +57,6 @@ class Profil extends Component {
           bitcolds
         </Badge>
         <hr />
-        <h3 className="Votes">Votes</h3>
         <h3 className="Propositions">Mes propositions de projets</h3>
         {projets.map(projet => (
           <Card style={{

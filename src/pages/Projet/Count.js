@@ -1,7 +1,10 @@
 import React from 'react';
 
 class Count extends React.Component {
-  state = { count: 0 }
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
 
   increment = () => {
     this.setState({
@@ -16,21 +19,19 @@ class Count extends React.Component {
   }
 
   decrement = () => {
+    if (!this.state.count >= 1) return
     this.setState({
       count: this.state.count - 1,
     });
   }
 
   decrement10 = () => {
+    if (this.state.count < 10) return
     this.setState({
       count: this.state.count - 10,
     });
   }
 
-  /* valider = () => {
-
-  });
-} */
 
   render() {
     return (
@@ -47,7 +48,7 @@ class Count extends React.Component {
         <button className="bouton" onClick={this.increment10}>+10</button>
         {' '}
         <div className="boutonval">
-          <button className="btn btn-info" onClick={this.valider}>Valider</button>
+          <button className="btn btn-info" onClick={() => this.props.submit(this.state.count)} disabled={!this.state.count > 0}>Valider</button>
         </div>
       </div>
     );

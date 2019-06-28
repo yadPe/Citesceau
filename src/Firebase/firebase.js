@@ -78,11 +78,14 @@ class Firebase {
   * @param {String} projectId A project ID.
   * @return {Promise<Array>} Array of comment objects ordered by timestamp - latest first
   */
-  commentaires = ProjetId => this.db.collection('Commentaires')
-    .where('projetId', '==', ProjetId)
-    .orderBy('creationDate', 'desc')
-    .get()
-    .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+  commentaires = ProjetId => {
+    console.log(ProjetId)
+    return this.db.collection('Commentaires')
+      .orderBy('creationDate', 'desc')
+      .where('projetId', '==', ProjetId)
+      .get()
+      .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+  }
 
   /**
   * Create a new comment in database and return its id
@@ -106,7 +109,10 @@ class Firebase {
         .catch(reject)
       const senderNewBalance = senderBalance - amount;
       console.log(senderBalance)
-      if (senderNewBalance < 0) reject('Sender does not have enought points');
+      if (senderNewBalance < 0) {
+        reject({ code: 1, error: 'Sender does not have enought points' })
+        return
+      };
       await this.db.collection('Users').doc(from).update({ points: senderNewBalance })
         .catch(reject)
       let receiverBalance, receiverType = null;
