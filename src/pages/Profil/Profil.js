@@ -12,20 +12,31 @@ class Profil extends Component {
   }
 
   componentWillMount() {
-    const { user, projets } = this.props;
+    const { user, authorId } = this.props;
     user(localStorage.getItem('userId')).then((data) => {
       this.setState({ ...data });
     });
-    projets().then((data) => {
+
+
+    // projets().then((data) => {
+    //   this.setState({ ...data });
+    // });
+  }
+
+  identification = () => {
+    const { authorId } = this.props;
+    authorId().then((data) => {
       this.setState({ ...data });
-    });
+    }); console.log(authorId);
   }
 
 
   render() {
     const {
-      image, points, author, uid, titre, projets, user,
+      image, points,
     } = this.state;
+    const { authorId, projets } = this.props;
+    console.log(authorId);
     return (
       <div>
         <h1 className="Profil">Profil</h1>
@@ -37,9 +48,9 @@ class Profil extends Component {
           points
         </h3>
         <h3 className="Votes">Votes</h3>
+        {projets}
         <h4 className="Propositions">Proposition</h4>
-        {/* {projets.map(projet => (projet.author))}
-        {author === uid ? { titre } : ''} */}
+        {/* {authorId ? { points } : ''} */}
       </div>
     );
   }
