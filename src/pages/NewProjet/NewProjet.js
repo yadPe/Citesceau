@@ -57,7 +57,7 @@ class NewProjet extends Component {
         <div>{error}</div>
         <Form onSubmit={this.onSubmit} style={{ padding: '5%' }}>
           <FormGroup>
-            <Label for="name">Titre du projet</Label>
+            <Label for="name" style={{ fontSize: '24px', fontFamily: 'Pragati Narrow' }}>Titre du projet</Label>
             <Input
               type="name"
               name="titre"
@@ -68,11 +68,11 @@ class NewProjet extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="File">Télécharger une image</Label>
-            <ImageUpload reportImageUrl={this.getImageURL} collection="Projets" style={{ maxWidth: '200px' }} />
+            <Label for="File" style={{ fontSize: '24px', fontFamily: 'Pragati Narrow' }}>Télécharger une image</Label>
+            <ImageUpload reportImageUrl={this.getImageURL} collection="Projets" />
           </FormGroup>
           <FormGroup>
-            <Label for="text">Description du projet</Label>
+            <Label for="text" style={{ fontSize: '24px', fontFamily: 'Pragati Narrow' }}>Description du projet</Label>
             <Input
               type="textarea"
               name="description"

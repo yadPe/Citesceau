@@ -25,7 +25,6 @@ class VueEnsemble extends Component {
         <Header />
         {this.state.projects.map(card => (
           <CardsProjet
-            author={card.author}
             creationDate={new Date(card.creationDate.toDate()).toDateString()}
             description={card.description}
             image={card.image}
