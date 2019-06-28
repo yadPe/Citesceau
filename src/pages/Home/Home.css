@@ -11,35 +11,23 @@ body{
 }
 
 .Citoyen{
-    color: black;
-    text-align: center;
-    font-family: "Titre";
-    font-size: 450%;
-    margin-top: 10%;
+  color: black;
+  font-family: "Titre";
+  font-size: 432%;
+  margin: 23% 0 5% 0;
 }
 
-.PropositionProjet{
-    display: flex;
-    margin: auto auto;
-    margin-top: 5%;
-    font-size: 167%;
-    margin-top: 20%;
-}
-
-.ConsultationProjet{
-    display: flex;
-    margin: auto auto;
-    margin-top: 5%;
-    font-size: 150%;
-}
-
-.CreationProfile{
-    display: flex;
-    margin: auto auto;
-    font-size: 200%;
+.home Button
+{
+  margin-bottom: 2%;
+  font-size: 130%;
+  width: 100%;
 }
 
 .Accroche{
-    display: flex;
-    margin: auto auto;
+  margin: auto auto;
+  font-family: 'Pragati Narrow';
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 5%;
 }
