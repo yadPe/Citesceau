@@ -9,7 +9,7 @@ import withFirebaseContext from '../../Firebase/withFirebaseContext';
 import './CreationProfil.css';
 
 
-class Signup extends Component {
+class CreationProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,6 +39,7 @@ class Signup extends Component {
         // eslint-disable-next-line prefer-destructuring
         const user = result.user;
         localStorage.setItem('userId', user.uid);
+
         this.users(user);
       })
       .catch((error) => {
@@ -54,6 +55,7 @@ class Signup extends Component {
     const {
       username, email, firstName, image,
     } = this.state;
+    localStorage.setItem('username', username);
     // Envoi d'infos dans le cloud Firestore
     newUser({
       name: username,
@@ -184,4 +186,4 @@ class Signup extends Component {
   }
 }
 
-export default withRouter(withFirebaseContext(Signup));
+export default withRouter(withFirebaseContext(CreationProfile));

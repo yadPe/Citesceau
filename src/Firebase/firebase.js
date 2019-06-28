@@ -16,7 +16,6 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
-
     this.db = app.firestore();
     this.auth = app.auth();
     this.storage = app.storage();
@@ -35,7 +34,7 @@ class Firebase {
   * Create a new user in database
   * @param {object} userObject Object containing all user properties
   */
-  newUser = user => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+  newUser = user => this.db.doc(`Users/${user.uid}`).set({ ...user, points: '100' }, { merge: true });
 
   /**
   * Queries a project from database with its id
@@ -80,7 +79,11 @@ class Firebase {
   * @return {number} ID generated from database.
   */
   newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
-}
 
+getProjectByAuthorId = id => this.db.collection('Projets')
+  .where('author', '==', id)
+  .get()
+  .then(querySnapshot => querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+}
 
 export default Firebase;
