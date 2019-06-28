@@ -16,7 +16,6 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
-
     this.db = app.firestore();
     this.auth = app.auth();
     this.storage = app.storage();
@@ -29,7 +28,7 @@ class Firebase {
    * @param {String} id User id to query.
    * @return {Promise<Object>} User object from database.
    */
-  user = (id) => this.db.collection('Users')
+  user = id => this.db.collection('Users')
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
@@ -48,19 +47,19 @@ class Firebase {
   * Create a new user in database
   * @param {Object} user Object containing all user properties
   */
-  newUser = (user) => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+  newUser = user => this.db.doc(`Users/${user.uid}`).set({ ...user, points: '100' }, { merge: true });
 
   /**
   * Queries a project from database with its id
   * @param {String} id Project id to query.
   * @return {Promise<Object>} Project object from database.
   */
-  projet = (id) => this.db.collection('Projets')
+  projet = id => this.db.collection('Projets')
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
 
-  /** 
+  /**
   * Return a list of all Projects in database
   * @return {Promise<Array>} Array of Project Objects ordered by timestamp - latest first
   */
@@ -74,7 +73,7 @@ class Firebase {
   * @param {Object} projet A project object.
   * @return {Promise<number>} ID generated from database.
   */
-  newProjet = (projet) => this.db.collection(`Projets`).add({ ...projet, creationDate: new Date(), points: 0 });
+  newProjet = projet => this.db.collection('Projets').add({ ...projet, creationDate: new Date(), points: 0 });
 
   /**
   * Queries all comments related to a project by id
@@ -135,5 +134,9 @@ class Firebase {
     })
   )
 
+  getProjectByAuthorId = id => this.db.collection('Projets')
+    .where('author', '==', id)
+    .get()
+    .then(querySnapshot => querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
 }
 export default Firebase;

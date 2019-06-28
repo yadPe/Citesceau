@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 
 
 const CardsProjet = (props) => {
-  const { 
+  const {
     author,
     creationDate,
     description,
@@ -11,8 +11,8 @@ const CardsProjet = (props) => {
     points,
     titre,
     projectId,
-    history
-   } = props;
+    history,
+  } = props;
 
   return (
     <div className="cardscenter" style={{ paddingTop: '5%' }}>
@@ -79,13 +79,13 @@ const CardsProjet = (props) => {
           </h2>
         </div>
         <div style={{
-          fontSize: '15px',
+          fontSize: '16px',
           lineHeight: '16px',
-          paddingTop: '2%',
+          paddingTop: '3%',
           marginBottom: '4px',
           marginLeft: '1px',
           overflow: 'hidden',
-          maxHeight: '5.5em',
+          maxHeight: '4.5em',
           fontFamily: 'Pragati Narrow',
         }}
         >
