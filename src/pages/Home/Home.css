@@ -31,3 +31,7 @@ body{
   line-height: 22px;
   margin-bottom: 5%;
 }
+
+header{
+  font-weight: bold;
+}

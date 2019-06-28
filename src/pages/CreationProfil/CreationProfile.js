@@ -84,101 +84,83 @@ class CreationProfile extends Component {
       || username === ''
       || image === '';
     return (
-      <div className='CreationProfil'>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+        fontFamily: 'Pragati Narrow',
+        fontSize: '20px',
+        fontWeight: 'bold',
+      }}
+      >
         <Form onSubmit={this.onSubmit} className="classesContainer" autoComplete="off">
           <FormGroup>
-            <div className="Prénom">
-              <Label for="firstName">Prénom</Label>
-            </div>
-            <div className="PrénomInput">
-              <Input
-                id="firstName"
-                label="Full Name"
-                name="firstName"
-                className="textfield"
-                value={firstName}
-                onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
-              />
-            </div>
+            <Label for="firstName">Prénom</Label>
+            <Input
+              id="firstName"
+              label="Full Name"
+              name="firstName"
+              className="textfield"
+              value={firstName}
+              onChange={this.onChange}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
+            />
           </FormGroup>
           <FormGroup>
-            <div className="Prénom">
-              <Label for="name">Nom</Label>
-            </div>
-            <div className="PrénomInput">
-              <Input
-                id="name"
-                label="Full Name"
-                name="username"
-                className="textfield"
-                value={username}
-                onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
-              />
-            </div>
+            <Label for="name">Nom</Label>
+            <Input
+              id="name"
+              label="Full Name"
+              name="username"
+              className="textfield"
+              value={username}
+              onChange={this.onChange}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
+            />
+          </FormGroup>
+          <FormGroup style={{ marginLeft: '0px' }}>
+            <Label for="File">Télécharger une image</Label>
+            <ImageUpload reportImageUrl={this.getImageURL} collection="Users" />
           </FormGroup>
           <FormGroup>
-            <div className="DLimage">
-              <Label for="File">Télécharger une image</Label>
-            </div>
-            <div className="DLimage2">
-              <ImageUpload reportImageUrl={this.getImageURL} collection="Users" />
-            </div>
+            <Label for="Mail">E-Mail</Label>
+            <Input
+              id="email"
+              label="Email Address"
+              name="email"
+              className="textfield"
+              currentValue={email}
+              onChange={this.onChange}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
+            />
           </FormGroup>
           <FormGroup>
-            <div className="Mail">
-              <Label for="Mail">E-Mail</Label>
-            </div>
-            <div className="MailInput">
-              <Input
-                id="email"
-                label="Email Address"
-                name="email"
-                className="textfield"
-                currentValue={email}
-                onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
-              />
-            </div>
+            <Label for="Password">Mot de passe</Label>
+            <Input
+              id="password"
+              label="Password"
+              name="passwordOne"
+              className="textfield"
+              value={passwordOne}
+              type="password"
+              onChange={this.onChange}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
+            />
           </FormGroup>
           <FormGroup>
-            <div className="mdp">
-              <Label for="Password">Mot de passe</Label>
-            </div>
-            <div className="mdp2">
-              <Input
-                id="password"
-                label="Password"
-                name="passwordOne"
-                className="textfield"
-                value={passwordOne}
-                type="password"
-                onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
-              />
-            </div>
+            <Label for="Password">Confirmation</Label>
+            <Input
+              id="password"
+              label="Confirm Password"
+              name="passwordTwo"
+              className="textfield"
+              value={passwordTwo}
+              type="password"
+              onChange={this.onChange}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
+            />
           </FormGroup>
-          <FormGroup>
-            <div className="confirmation">
-              <Label for="Password">Confirmation</Label>
-            </div>
-            <div className="confirmation2">
-              <Input
-                id="password"
-                label="Confirm Password"
-                name="passwordTwo"
-                className="textfield"
-                value={passwordTwo}
-                type="password"
-                onChange={this.onChange}
-                style={{ marginTop: '5%', width: '70%' }}
-              />
-            </div>
-          </FormGroup>
-          <div className="buttonnn">
-            <Button onclick={this.onSubmit} disabled={isInvalid}>Je me connecte</Button>
-          </div>
+          <Button style={{ fontSize: '24px', backgroundColor: '#17a2b8', borderColor: '#17a2b8' }} onclick={this.onSubmit} disabled={isInvalid}>Je me connecte</Button>
         </Form>
         {error && <p>{error.message}</p>}
       </div>

@@ -67,6 +67,7 @@ class Header extends Component {
             backgroundColor: 'grey',
             fontSize: '20px',
             boxShadow: '0px 0px 1px white',
+            fontWeigth: 'bold',
           }}
           >
             {userInfo.points}
