@@ -36,9 +36,8 @@ class Profil extends Component {
           <h3 className="NombresPoints2">
             {userInfo.Points}
             {' '}
-          points
+            points
           </h3>
-          <h3 className="Votes">Votes</h3>
           <h4 className="Propositions">Proposition</h4>
         </div>
       </div>
