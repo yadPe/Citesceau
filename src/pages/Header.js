@@ -32,7 +32,7 @@ class Header extends Component {
         padding: '0 10px 0 10px',
       }}
       >
-        <div style={{ fontSize: '20px', fontFamily: 'Titre' }}>Hackatown</div>
+        <div style={{ fontSize: '20px', fontFamily: 'Titre' }}>Citésceau</div>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '145px' }}>
           <div style={{
             borderRadius: '440px',
