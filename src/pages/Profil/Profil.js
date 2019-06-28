@@ -45,7 +45,9 @@ class Profil extends Component {
         <img className="ImageProfil" src={image} alt="profil" />
         <h2 className="NombrePoints">Nombre de points</h2>
         <h3 className="NombresPoints2">
-          points
+          {points}
+          {' '}
+          bitcolds
         </h3>
         {points}
         <h3 className="Votes">Votes</h3>
