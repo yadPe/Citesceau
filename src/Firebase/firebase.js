@@ -26,7 +26,7 @@ class Firebase {
    * Queries a user from database with its userId
    * @param {string} uid User id to query.
    */
-  user = (id) => this.db.collection('Users')
+  user = id => this.db.collection('Users')
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
@@ -35,19 +35,19 @@ class Firebase {
   * Create a new user in database
   * @param {object} userObject Object containing all user properties
   */
-  newUser = (user) => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+  newUser = user => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
 
   /**
   * Queries a project from database with its id
   * @param {string} id Project id to query.
   * @return {object} Project object from database.
   */
-  projet = (id) => this.db.collection('Projets')
+  projet = id => this.db.collection('Projets')
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
 
-  /** 
+  /**
   * Return a list of all Projects in database
   * @return {Array} Array of Project Objects ordered by timestamp - latest first
   */
@@ -61,7 +61,7 @@ class Firebase {
   * @param {object} projectObject A project object.
   * @return {number} ID generated from database.
   */
-  newProjet = (projet) => this.db.collection(`Projets`).add({ ...projet, creationDate: new Date(), points: 0 });
+  newProjet = projet => this.db.collection('Projets').add({ ...projet, creationDate: new Date(), points: 0 });
 
   /**
   * Queries all comments related to a project by id

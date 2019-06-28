@@ -11,19 +11,23 @@ body{
 }
 
 .Citoyen{
-    color: black;
-    font-family: "Titre";
-    font-size: 460%;
-    margin-top: 10%;
+  color: black;
+  font-family: "Titre";
+  font-size: 432%;
+  margin: 23% 0 5% 0;
 }
 
-.CreationProfile{
-    display: flex;
-    margin: auto auto;
-    font-size: 200%;
+.home Button
+{
+  margin-bottom: 2%;
+  font-size: 130%;
+  width: 100%;
 }
 
 .Accroche{
-    display: flex;
-    margin: auto auto;
+  margin: auto auto;
+  font-family: 'Pragati Narrow';
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 5%;
 }
