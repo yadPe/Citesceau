@@ -21,7 +21,7 @@ class Firebase {
     this.auth = app.auth();
     this.storage = app.storage();
 
-    this.transaction('Z3nnifMHc7WwLyUTKhi0Qc3CLai2', 'ygCzMGSrneJ8SESimBAP', 10).then(console.log).catch(console.error)
+    this.getUsernameByUserId('1UZqSt2s8YXOcbUwxslOlD6Pfoj1').then(console.log)
   }
 
   /**
@@ -33,6 +33,16 @@ class Firebase {
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
+
+  /**
+   * Queries a user last and first names from database with its userId
+   * @param {String} userId User id to query.
+   * @return {Promise<String>} User last and first names.
+   */
+  getUsernameByUserId = (userId) => this.db.collection('Users')
+    .doc(userId)
+    .get()
+    .then(querySnapshot => (`${querySnapshot.data().firstName} ${querySnapshot.data().name}`));
 
   /**
   * Create a new user in database
