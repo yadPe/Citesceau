@@ -33,22 +33,29 @@ class Projet extends Component {
 
 
   render() {
-    const { author, creationDate, description, image, points, titre } = this.state;
-
+    const {
+      author, creationDate, description, image, points, titre,
+    } = this.state;
     let time = null;
     if (creationDate) {
-      time = creationDate.toDate()
+      time = creationDate.toDate();
     }
     return (
       <div>
         <h1 className="Projet">{titre}</h1>
-        <img className="ImageProjet" src={image} alt="Jaune" />
+        <img className="ImageProjet" src={image} alt="Jaune" style={{ maxWidth: '300px' }} />
         <h2 className="DescriptionTitre">Description du projet</h2>
         <p className="DescriptionProjet">{description}</p>
-        <p className="timeSince">Créé il y a {timeSince(new Date(time) || Date.now())}</p>
+        <p className="timeSince">
+          Créé il y a
+          {' '}
+          {timeSince(new Date(time) || Date.now())}
+        </p>
+        <hr />
         <div className="Counttt">
           <Count value={points} />
         </div>
+        <hr />
         <h3 className="CommentairesTitre">Commentaires</h3>
         <p className="Commentaires"><CommentairesGet com={this.state.userComments} /></p>
       </div>
