@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import withFirebaseContext from '../Firebase/withFirebaseContext';
 
 class Header extends Component {
   constructor(props) {
@@ -8,13 +10,15 @@ class Header extends Component {
     };
   }
 
-  componentWillMount() {
-    this.setState({
-      userInfo: {
-        Image: 'https://firebasestorage.googleapis.com/v0/b/hackatown-645d6.appspot.com/o/Medias%2FProfiles%2FAragorn1024-1230603_140x140.jpg?alt=media&token=53a9dfbf-471c-44fd-92f3-dbf9c3aff7c4',
-        Points: 100,
-      },
-    });
+  componentDidMount() {
+    const { user } = this.props;
+    user(localStorage.getItem('userId')).then(userInfo => this.setState({userInfo}))
+  }
+  
+
+  componentWillReceiveProps(nextProps) {
+    const { user } = nextProps;
+    user(localStorage.getItem('userId')).then(userInfo => this.setState({userInfo}))
   }
 
   render() {
@@ -31,7 +35,7 @@ class Header extends Component {
         padding: '0 10px 0 10px',
       }}
       >
-        <div style={{ fontSize: '26px' }}>Hackatown</div>
+        <div style={{ fontSize: '20px', fontFamily: 'Titre' }}>Citésceau</div>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '145px' }}>
           <div style={{
             borderRadius: '440px',
@@ -40,15 +44,17 @@ class Header extends Component {
             marginLeft: '34px',
           }}
           >
-            <img
-              src={userInfo.Image}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '440px',
-              }}
-              alt="profile"
-            />
+            <Link to="/profil">
+              <img
+                src={userInfo.image}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '440px',
+                }}
+                alt="profile"
+              />
+            </Link>
           </div>
           <div style={{
             display: 'flex',
@@ -61,9 +67,10 @@ class Header extends Component {
             backgroundColor: 'grey',
             fontSize: '20px',
             boxShadow: '0px 0px 1px white',
+            fontWeigth: 'bold',
           }}
           >
-            {userInfo.Points}
+            {userInfo.points}
           </div>
         </div>
       </header>
@@ -71,4 +78,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withFirebaseContext(Header);

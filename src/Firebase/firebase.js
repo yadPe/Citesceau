@@ -16,7 +16,6 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
-
     this.db = app.firestore();
     this.auth = app.auth();
     this.storage = app.storage();
@@ -24,32 +23,43 @@ class Firebase {
 
   /**
    * Queries a user from database with its userId
-   * @param {string} uid User id to query.
+   * @param {String} id User id to query.
+   * @return {Promise<Object>} User object from database.
    */
-  user = (id) => this.db.collection('Users')
+  user = id => this.db.collection('Users')
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
+
+  /**
+   * Queries a user last and first names from database with its userId
+   * @param {String} userId User id to query.
+   * @return {Promise<String>} User last and first names.
+   */
+  getUsernameByUserId = (userId) => this.db.collection('Users')
+    .doc(userId)
+    .get()
+    .then(querySnapshot => (`${querySnapshot.data().firstName} ${querySnapshot.data().name}`));
 
   /**
   * Create a new user in database
-  * @param {object} userObject Object containing all user properties
+  * @param {Object} user Object containing all user properties
   */
-  newUser = (user) => this.db.doc(`Users/${user.uid}`).set({ ...user, points: 100 }, { merge: true });
+  newUser = user => this.db.doc(`Users/${user.uid}`).set({ ...user, points: '100' }, { merge: true });
 
   /**
   * Queries a project from database with its id
-  * @param {string} id Project id to query.
-  * @return {object} Project object from database.
+  * @param {String} id Project id to query.
+  * @return {Promise<Object>} Project object from database.
   */
-  projet = (id) => this.db.collection('Projets')
+  projet = id => this.db.collection('Projets')
     .doc(id)
     .get()
     .then(querySnapshot => ({ ...querySnapshot.data(), id: querySnapshot.id }));
 
-  /** 
+  /**
   * Return a list of all Projects in database
-  * @return {Array} Array of Project Objects ordered by timestamp - latest first
+  * @return {Promise<Array>} Array of Project Objects ordered by timestamp - latest first
   */
   projets = () => this.db.collection('Projets')
     .orderBy('creationDate', 'desc')
@@ -58,29 +68,79 @@ class Firebase {
 
   /**
   * Create a new project in database and return its id
-  * @param {object} projectObject A project object.
-  * @return {number} ID generated from database.
+  * @param {Object} projet A project object.
+  * @return {Promise<number>} ID generated from database.
   */
-  newProjet = (projet) => this.db.collection(`Projets`).add({ ...projet, creationDate: new Date(), points: 0 });
+  newProjet = projet => this.db.collection('Projets').add({ ...projet, creationDate: new Date(), points: 0 });
 
   /**
   * Queries all comments related to a project by id
-  * @param {string} projectId A project ID.
-  * @return {Array} Array of comment objects ordered by timestamp - latest first
+  * @param {String} projectId A project ID.
+  * @return {Promise<Array>} Array of comment objects ordered by timestamp - latest first
   */
-  commentaires = ProjetId => this.db.collection('Commentaires')
-    .where('projetId', '==', ProjetId)
-    .orderBy('creationDate', 'desc')
-    .get()
-    .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+  commentaires = ProjetId => {
+    console.log(ProjetId)
+    return this.db.collection('Commentaires')
+      .orderBy('creationDate', 'desc')
+      .where('projetId', '==', ProjetId)
+      .get()
+      .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+  }
 
   /**
   * Create a new comment in database and return its id
-  * @param {object} commentObject A comment object.
-  * @return {number} ID generated from database.
+  * @param {Object} commentaire A comment object.
+  * @return {Promise<Number>} ID generated from database.
   */
   newCommentaire = commentaire => this.db.collection('Commentaires').add({ ...commentaire, creationDate: new Date() });
+
+  /**
+  * Transfer points between entities.
+  * @param {String} from ID of user who send points.
+  * @param {String} to ID of user or projet who receives points.
+  * @param {String} amount Amount of points to transfer.
+  * @return {Promise<Number>} New sender points balance if transation is accepted.
+  */
+  transaction = (from, to, amount) => (
+    new Promise(async (resolve, reject) => {
+      let senderBalance = 0;
+      await this.user(from)
+        .then(user => senderBalance = user.points)
+        .catch(reject)
+      const senderNewBalance = senderBalance - amount;
+      console.log(senderBalance)
+      if (senderNewBalance < 0) {
+        reject({ code: 1, error: 'Sender does not have enought points' })
+        return
+      };
+      await this.db.collection('Users').doc(from).update({ points: senderNewBalance })
+        .catch(reject)
+      let receiverBalance, receiverType = null;
+      await this.db.collection('Projets').doc(to).get()
+        .then(doc => {
+          receiverBalance = doc.data().points;
+          receiverType = 'Projets';
+        })
+        .catch(async err => {
+          await this.db.collection('Users').doc(to).get()
+            .then(doc => {
+              receiverBalance = doc.data().points;
+              receiverType = 'Users';
+            })
+            .catch(reject)
+        })
+      console.log(receiverBalance, receiverType)
+      receiverBalance += amount;
+      await this.db.collection(receiverType).doc(to).update({ points: receiverBalance })
+        .catch(reject)
+      console.log(receiverBalance)
+      resolve(senderNewBalance)
+    })
+  )
+
+  getProjectByAuthorId = id => this.db.collection('Projets')
+    .where('author', '==', id)
+    .get()
+    .then(querySnapshot => querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
 }
-
-
 export default Firebase;

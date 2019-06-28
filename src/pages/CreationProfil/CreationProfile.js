@@ -6,9 +6,10 @@ import {
 import 'bootstrap/dist/css/bootstrap.css';
 import ImageUpload from '../ImageUpload';
 import withFirebaseContext from '../../Firebase/withFirebaseContext';
+import './CreationProfil.css';
 
 
-class Signup extends Component {
+class CreationProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,6 +39,7 @@ class Signup extends Component {
         // eslint-disable-next-line prefer-destructuring
         const user = result.user;
         localStorage.setItem('userId', user.uid);
+
         this.users(user);
       })
       .catch((error) => {
@@ -53,6 +55,7 @@ class Signup extends Component {
     const {
       username, email, firstName, image,
     } = this.state;
+    localStorage.setItem('username', username);
     // Envoi d'infos dans le cloud Firestore
     newUser({
       name: username,
@@ -81,7 +84,15 @@ class Signup extends Component {
       || username === ''
       || image === '';
     return (
-      <div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+        fontFamily: 'Pragati Narrow',
+        fontSize: '20px',
+        fontWeight: 'bold',
+      }}
+      >
         <Form onSubmit={this.onSubmit} className="classesContainer" autoComplete="off">
           <FormGroup>
             <Label for="firstName">Prénom</Label>
@@ -92,7 +103,7 @@ class Signup extends Component {
               className="textfield"
               value={firstName}
               onChange={this.onChange}
-              style={{ marginTop: '5%', width: '50%' }}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
             />
           </FormGroup>
           <FormGroup>
@@ -104,10 +115,10 @@ class Signup extends Component {
               className="textfield"
               value={username}
               onChange={this.onChange}
-              style={{ marginTop: '5%', width: '50%' }}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
             />
           </FormGroup>
-          <FormGroup>
+          <FormGroup style={{ marginLeft: '0px' }}>
             <Label for="File">Télécharger une image</Label>
             <ImageUpload reportImageUrl={this.getImageURL} collection="Users" />
           </FormGroup>
@@ -120,7 +131,7 @@ class Signup extends Component {
               className="textfield"
               currentValue={email}
               onChange={this.onChange}
-              style={{ marginTop: '5%', width: '50%' }}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
             />
           </FormGroup>
           <FormGroup>
@@ -133,7 +144,7 @@ class Signup extends Component {
               value={passwordOne}
               type="password"
               onChange={this.onChange}
-              style={{ marginTop: '5%', width: '50%' }}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
             />
           </FormGroup>
           <FormGroup>
@@ -146,10 +157,10 @@ class Signup extends Component {
               value={passwordTwo}
               type="password"
               onChange={this.onChange}
-              style={{ marginTop: '5%', width: '50%' }}
+              style={{ marginTop: '0%', width: '70%', marginLeft: '3.8em' }}
             />
           </FormGroup>
-          <Button onclick={this.onSubmit} disabled={isInvalid}>Je me connecte</Button>
+          <Button style={{ fontSize: '24px', backgroundColor: '#17a2b8', borderColor: '#17a2b8' }} onclick={this.onSubmit} disabled={isInvalid}>Je me connecte</Button>
         </Form>
         {error && <p>{error.message}</p>}
       </div>
@@ -157,4 +168,4 @@ class Signup extends Component {
   }
 }
 
-export default withRouter(withFirebaseContext(Signup));
+export default withRouter(withFirebaseContext(CreationProfile));
